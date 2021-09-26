@@ -141,11 +141,11 @@
                     <form id="regForm" action="{{ route('statement.store') }}" method="POST">
                         @method('POST')
                         @csrf
-                        {{-- @include('pages.commitment') --}}
+                        @include('pages.commitment')
 
-                        {{-- @include('pages.immovable') --}}
+                        @include('pages.immovable')
 
-                        {{-- @include('pages.movable') --}}
+                        @include('pages.movable')
 
                         @include('pages.acknowledgement')
                         <div style="overflow:auto;">

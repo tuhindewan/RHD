@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="land_acquisition_date" placeholder="সম্পদ অর্জনের তারিখ" id="land_acquisition_date">
+                    <input type="text" class="form-control" name="land_acquisition_date" placeholder="সম্পদ অর্জনের তারিখ (২১/০৯/২০২১)" id="land_acquisition_date">
                     </div>
                 </div>
                 <div class="col-md-4">
