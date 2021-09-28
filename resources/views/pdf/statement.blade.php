@@ -12,12 +12,12 @@
                 <div class="card-header">
                     <h3 class="card-title" style="float: left">সম্পদের হিসাব বিবরণী</h3>
                       <div class="card-tools" style="float: right">
-                          <a href="" class="btn btn-success">
+                          <a href="{{ route('pdf.generate') }}" class="btn btn-success">
                               <i class="fas fa-print"></i> প্রিন্ট করুন
                           </a>
                       </div>
                 </div>
-                <div class="card-body printable">
+                <div class="card-body">
                     <div class="col-md-12" style="text-align: center">
                         <h1>স্থাবর</h1>
                         <hr style="border-top: 1px solid #eee">
@@ -48,43 +48,43 @@
                           </tr>
                           <tr>
                             <th scope="row">জমি (কৃষি/অকৃষি)</th>
-                            <td>{{ $land->land_acquisition_date }}</td>
+                            {{-- <td>{{ $land->land_acquisition_date }}</td>
                             <td>{{ $land->land_acquisition_name }}</td>
                             <td>{{ $land->land_acquisition_address }}</td>
                             <td>{{ $land->land_property_amount }}</td>
                             <td>{{ $land->land_reason_price }}</td>
                             <td>{{ $land->land_source_money }}</td>
-                            <td>{{ $land->land_comments }}</td>
+                            <td>{{ $land->land_comments }}</td> --}}
                           </tr>
                           <tr>
                             <th scope="row">ইমারত</th>
-                            <td>{{ $building->building_acquisition_date }}</td>
+                            {{-- <td>{{ $building->building_acquisition_date }}</td>
                             <td>{{ $building->building_acquisition_name }}</td>
                             <td>{{ $building->building_acquisition_address }}</td>
                             <td>{{ $building->building_property_amount }}</td>
                             <td>{{ $building->building_reason_price }}</td>
                             <td>{{ $building->building_source_money }}</td>
-                            <td>{{ $building->building_comments }}</td>
+                            <td>{{ $building->building_comments }}</td> --}}
                           </tr>
                           <tr>
                             <th scope="row">বসতবাড়ি</th>
-                            <td>{{ $home->home_acquisition_date }}</td>
+                            {{-- <td>{{ $home->home_acquisition_date }}</td>
                             <td>{{ $home->home_acquisition_name }}</td>
                             <td>{{ $home->home_acquisition_address }}</td>
                             <td>{{ $home->home_property_amount }}</td>
                             <td>{{ $home->home_reason_price }}</td>
                             <td>{{ $home->home_source_money }}</td>
-                            <td>{{ $home->home_comments }}</td>
+                            <td>{{ $home->home_comments }}</td> --}}
                           </tr>
                           <tr>
                             <th scope="row">ব্যবসা প্রতিষ্ঠান</th>
-                            <td>{{ $business->business_acquisition_date }}</td>
+                            {{-- <td>{{ $business->business_acquisition_date }}</td>
                             <td>{{ $business->business_acquisition_name }}</td>
                             <td>{{ $business->business_acquisition_address }}</td>
                             <td>{{ $business->business_property_amount }}</td>
                             <td>{{ $business->business_reason_price }}</td>
                             <td>{{ $business->business_source_money }}</td>
-                            <td>{{ $business->business_comments }}</td>
+                            <td>{{ $business->business_comments }}</td> --}}
                           </tr>
                         </tbody>
                     </table>
@@ -120,73 +120,73 @@
                           </tr>
                           <tr>
                             <th scope="row">অলংকারাদি</th>
-                            <td>{{ $ornament->ornament_acquisition_date }}</td>
+                            {{-- <td>{{ $ornament->ornament_acquisition_date }}</td>
                             <td>{{ $ornament->ornament_acquisition_name }}</td>
                             <td>{{ $ornament->ornament_acquisition_address }}</td>
                             <td>{{ $ornament->ornament_property_amount }}</td>
                             <td>{{ $ornament->ornament_reason_price }}</td>
                             <td>{{ $ornament->ornament_source_money }}</td>
-                            <td>{{ $ornament->ornament_comments }}</td>
+                            <td>{{ $ornament->ornament_comments }}</td> --}}
                           </tr>
                           <tr>
                             <th scope="row">স্টকস</th>
-                            <td>{{ $stock->stock_acquisition_date }}</td>
+                            {{-- <td>{{ $stock->stock_acquisition_date }}</td>
                             <td>{{ $stock->stock_acquisition_name }}</td>
                             <td>{{ $stock->stock_acquisition_address }}</td>
                             <td>{{ $stock->stock_property_amount }}</td>
                             <td>{{ $stock->stock_reason_price }}</td>
                             <td>{{ $stock->stock_source_money }}</td>
-                            <td>{{ $stock->stock_comments }}</td>
+                            <td>{{ $stock->stock_comments }}</td> --}}
                           </tr>
                           <tr>
                             <th scope="row">শেয়ার</th>
-                            <td>{{ $share->share_acquisition_date }}</td>
+                            {{-- <td>{{ $share->share_acquisition_date }}</td>
                             <td>{{ $share->share_acquisition_name }}</td>
                             <td>{{ $share->share_acquisition_address }}</td>
                             <td>{{ $share->share_property_amount }}</td>
                             <td>{{ $share->share_reason_price }}</td>
                             <td>{{ $share->share_source_money }}</td>
-                            <td>{{ $share->share_comments }}</td>
+                            <td>{{ $share->share_comments }}</td> --}}
                           </tr>
                           <tr>
                             <th scope="row">বীমা</th>
-                            <td>{{ $bima->bima_acquisition_date }}</td>
+                            {{-- <td>{{ $bima->bima_acquisition_date }}</td>
                             <td>{{ $bima->bima_acquisition_name }}</td>
                             <td>{{ $bima->bima_acquisition_address }}</td>
                             <td>{{ $bima->bima_property_amount }}</td>
                             <td>{{ $bima->bima_reason_price }}</td>
                             <td>{{ $bima->bima_source_money }}</td>
-                            <td>{{ $bima->bima_comments }}</td>
+                            <td>{{ $bima->bima_comments }}</td> --}}
                           </tr>
                           <tr>
                             <th scope="row">নগদ/ব্যাংকে গচ্ছিত অর্থ</th>
-                            <td>{{ $cash->cash_acquisition_date }}</td>
+                            {{-- <td>{{ $cash->cash_acquisition_date }}</td>
                             <td>{{ $cash->cash_acquisition_name }}</td>
                             <td>{{ $cash->cash_acquisition_address }}</td>
                             <td>{{ $cash->cash_property_amount }}</td>
                             <td>{{ $cash->cash_reason_price }}</td>
                             <td>{{ $cash->cash_source_money }}</td>
-                            <td>{{ $cash->cash_comments }}</td>
+                            <td>{{ $cash->cash_comments }}</td> --}}
                           </tr>
                           <tr>
                             <th scope="row">মোটর ভেহিকলস</th>
-                            <td>{{ $vehicle->vehicle_acquisition_date }}</td>
+                            {{-- <td>{{ $vehicle->vehicle_acquisition_date }}</td>
                             <td>{{ $vehicle->vehicle_acquisition_name }}</td>
                             <td>{{ $vehicle->vehicle_acquisition_address }}</td>
                             <td>{{ $vehicle->vehicle_property_amount }}</td>
                             <td>{{ $vehicle->vehicle_reason_price }}</td>
                             <td>{{ $vehicle->vehicle_source_money }}</td>
-                            <td>{{ $vehicle->vehicle_comments }}</td>
+                            <td>{{ $vehicle->vehicle_comments }}</td> --}}
                           </tr>
                           <tr>
                             <th scope="row">ইলেক্ট্রনিক্স জিনিসপত্র</th>
-                            <td>{{ $electronics->electronics_acquisition_date }}</td>
+                            {{-- <td>{{ $electronics->electronics_acquisition_date }}</td>
                             <td>{{ $electronics->electronics_acquisition_name }}</td>
                             <td>{{ $electronics->electronics_acquisition_address }}</td>
                             <td>{{ $electronics->electronics_property_amount }}</td>
                             <td>{{ $electronics->electronics_reason_price }}</td>
                             <td>{{ $electronics->electronics_source_money }}</td>
-                            <td>{{ $electronics->electronics_comments }}</td>
+                            <td>{{ $electronics->electronics_comments }}</td> --}}
                           </tr>
                         </tbody>
                     </table>
