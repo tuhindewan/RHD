@@ -127,6 +127,11 @@
 	visibility:visible;
 }
 .clone thead, .clone tfoot{background:transparent;}
+.required:after {
+        content: '*';
+        color: red;
+        padding-left: 5px;
+    }
     </style>
 @endpush
 

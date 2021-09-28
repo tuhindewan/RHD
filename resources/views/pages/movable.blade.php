@@ -9,16 +9,19 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="ornament_acquisition_date" placeholder="সম্পদ অর্জনের তারিখ" id="ornament_acquisition_date">
+                        <label class="required">সম্পদ অর্জনের তারিখ</label>
+                        <input type="text" class="form-control" name="ornament_acquisition_date" placeholder="২১/০৯/২০২১" id="ornament_acquisition_date">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="ornament_acquisition_name" placeholder="যার নামে অর্জিত" id="last">
+                        <label class="required">যার নামে অর্জিত</label>
+                        <input type="text" class="form-control" name="ornament_acquisition_name" placeholder="যার নামে অর্জিত" id="last">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
+                        <label class="required">সম্পত্তির পরিমাণ</label>
                         <input type="text" class="form-control" name="ornament_property_amount" placeholder="সম্পত্তির পরিমাণ" id="last">
                     </div>
                 </div>
@@ -27,13 +30,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="ornament_reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য" id="company">
+                        <label class="required">কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য</label>
+                        <input type="text" class="form-control" name="ornament_reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য" id="company">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="ornament_source_money" id="phone" placeholder="ক্রয় হলে অর্থের উত্স">
+                        <label class="required">ক্রয় হলে অর্থের উত্স</label>
+                        <input type="text" class="form-control" name="ornament_source_money" id="phone" placeholder="ক্রয় হলে অর্থের উত্স">
                     </div>
                 </div>
             </div>
@@ -41,13 +46,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="ornament_acquisition_address" id="email" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান">
+                        <label class="required">সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান</label>
+                        <input type="text" class="form-control" name="ornament_acquisition_address" id="email" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="ornament_comments" id="url" placeholder="মন্তব্য">
+                        <label class="required">মন্তব্য</label>
+                        <input type="text" class="form-control" name="ornament_comments" id="url" placeholder="মন্তব্য">
                     </div>
                 </div>
             </div>
@@ -59,16 +66,19 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="stock_acquisition_date" placeholder="সম্পদ অর্জনের তারিখ" id="stock_acquisition_date">
+                        <label class="required">সম্পদ অর্জনের তারিখ</label>
+                        <input type="text" class="form-control" name="stock_acquisition_date" placeholder="২১/০৯/২০২১" id="stock_acquisition_date">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="stock_acquisition_name" placeholder="যার নামে অর্জিত" id="last">
+                        <label class="required">যার নামে অর্জিত</label>
+                        <input type="text" class="form-control" name="stock_acquisition_name" placeholder="যার নামে অর্জিত" id="last">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
+                        <label class="required">সম্পত্তির পরিমাণ</label>
                         <input type="text" class="form-control" name="stock_property_amount" placeholder="সম্পত্তির পরিমাণ" id="last">
                     </div>
                 </div>
@@ -77,13 +87,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="stock_reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য" id="company">
+                        <label class="required">কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য</label>
+                        <input type="text" class="form-control" name="stock_reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য" id="company">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="stock_source_money" id="phone" placeholder="ক্রয় হলে অর্থের উত্স">
+                        <label class="required">ক্রয় হলে অর্থের উত্স</label>
+                        <input type="text" class="form-control" name="stock_source_money" id="phone" placeholder="ক্রয় হলে অর্থের উত্স">
                     </div>
                 </div>
             </div>
@@ -91,13 +103,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="stock_acquisition_address" id="email" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান">
+                        <label class="required">সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান</label>
+                        <input type="text" class="form-control" name="stock_acquisition_address" id="email" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="stock_comments" id="url" placeholder="মন্তব্য">
+                        <label class="required">মন্তব্য</label>
+                        <input type="text" class="form-control" name="stock_comments" id="url" placeholder="মন্তব্য">
                     </div>
                 </div>
             </div>
@@ -108,16 +122,19 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="share_acquisition_date" placeholder="সম্পদ অর্জনের তারিখ" id="share_acquisition_date">
+                        <label class="required">সম্পদ অর্জনের তারিখ</label>
+                        <input type="text" class="form-control" name="share_acquisition_date" placeholder="২১/০৯/২০২১" id="share_acquisition_date">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="share_acquisition_name" placeholder="যার নামে অর্জিত" id="last">
+                        <label class="required">যার নামে অর্জিত</label>
+                        <input type="text" class="form-control" name="share_acquisition_name" placeholder="যার নামে অর্জিত" id="last">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
+                        <label class="required">সম্পত্তির পরিমাণ</label>
                         <input type="text" class="form-control" name="share_property_amount" placeholder="সম্পত্তির পরিমাণ" id="last">
                     </div>
                 </div>
@@ -126,13 +143,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="share_reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য" id="company">
+                        <label class="required">কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য</label>
+                        <input type="text" class="form-control" name="share_reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য" id="company">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="share_source_money" id="phone" placeholder="ক্রয় হলে অর্থের উত্স">
+                        <label class="required">ক্রয় হলে অর্থের উত্স</label>
+                        <input type="text" class="form-control" name="share_source_money" id="phone" placeholder="ক্রয় হলে অর্থের উত্স">
                     </div>
                 </div>
             </div>
@@ -140,13 +159,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="share_acquisition_address" id="email" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান">
+                        <label class="required">সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান</label>
+                        <input type="text" class="form-control" name="share_acquisition_address" id="email" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="share_comments" id="url" placeholder="মন্তব্য">
+                        <label class="required">মন্তব্য</label>
+                        <input type="text" class="form-control" name="share_comments" id="url" placeholder="মন্তব্য">
                     </div>
                 </div>
             </div>
@@ -157,16 +178,19 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="bima_acquisition_date" placeholder="সম্পদ অর্জনের তারিখ" id="bima_acquisition_date">
+                        <label class="required">সম্পদ অর্জনের তারিখ</label>
+                        <input type="text" class="form-control" name="bima_acquisition_date" placeholder="২১/০৯/২০২১" id="bima_acquisition_date">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="bima_acquisition_name" placeholder="যার নামে অর্জিত" id="last">
+                        <label class="required">যার নামে অর্জিত</label>
+                        <input type="text" class="form-control" name="bima_acquisition_name" placeholder="যার নামে অর্জিত" id="last">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
+                        <label class="required">সম্পত্তির পরিমাণ</label>
                         <input type="text" class="form-control" name="bima_property_amount" placeholder="সম্পত্তির পরিমাণ" id="last">
                     </div>
                 </div>
@@ -175,13 +199,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="bima_reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য" id="company">
+                        <label class="required">কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য</label>
+                        <input type="text" class="form-control" name="bima_reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য" id="company">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="bima_source_money" id="phone" placeholder="ক্রয় হলে অর্থের উত্স">
+                        <label class="required">ক্রয় হলে অর্থের উত্স</label>
+                        <input type="text" class="form-control" name="bima_source_money" id="phone" placeholder="ক্রয় হলে অর্থের উত্স">
                     </div>
                 </div>
             </div>
@@ -189,13 +215,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="bima_acquisition_address" id="email" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান">
+                        <label class="required">সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান</label>
+                        <input type="text" class="form-control" name="bima_acquisition_address" id="email" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="bima_comments" id="url" placeholder="মন্তব্য">
+                        <label class="required">মন্তব্য</label>
+                        <input type="text" class="form-control" name="bima_comments" id="url" placeholder="মন্তব্য">
                     </div>
                 </div>
             </div>
@@ -206,16 +234,19 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="cash_acquisition_date" placeholder="সম্পদ অর্জনের তারিখ" id="cash_acquisition_date">
+                        <label class="required">সম্পদ অর্জনের তারিখ</label>
+                        <input type="text" class="form-control" name="cash_acquisition_date" placeholder="২১/০৯/২০২১" id="cash_acquisition_date">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="cash_acquisition_name" placeholder="যার নামে অর্জিত" id="last">
+                        <label class="required">যার নামে অর্জিত</label>
+                        <input type="text" class="form-control" name="cash_acquisition_name" placeholder="যার নামে অর্জিত" id="last">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
+                        <label class="required">সম্পত্তির পরিমাণ</label>
                         <input type="text" class="form-control" name="cash_property_amount" placeholder="সম্পত্তির পরিমাণ" id="last">
                     </div>
                 </div>
@@ -224,13 +255,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="cash_reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য" id="company">
+                        <label class="required">কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য</label>
+                        <input type="text" class="form-control" name="cash_reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য" id="company">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="cash_source_money" id="phone" placeholder="ক্রয় হলে অর্থের উত্স">
+                        <label class="required">ক্রয় হলে অর্থের উত্স</label>
+                        <input type="text" class="form-control" name="cash_source_money" id="phone" placeholder="ক্রয় হলে অর্থের উত্স">
                     </div>
                 </div>
             </div>
@@ -238,13 +271,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="cash_acquisition_address" id="email" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান">
+                        <label class="required">সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান</label>
+                        <input type="text" class="form-control" name="cash_acquisition_address" id="email" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="cash_comments" id="url" placeholder="মন্তব্য">
+                        <label class="required">মন্তব্য</label>
+                        <input type="text" class="form-control" name="cash_comments" id="url" placeholder="মন্তব্য">
                     </div>
                 </div>
             </div>
@@ -255,16 +290,19 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="vehicle_acquisition_date" placeholder="সম্পদ অর্জনের তারিখ" id="vehicle_acquisition_date">
+                        <label class="required">সম্পদ অর্জনের তারিখ</label>
+                        <input type="text" class="form-control" name="vehicle_acquisition_date" placeholder="২১/০৯/২০২১" id="vehicle_acquisition_date">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="vehicle_acquisition_name" placeholder="যার নামে অর্জিত" id="last">
+                        <label class="required">যার নামে অর্জিত</label>
+                        <input type="text" class="form-control" name="vehicle_acquisition_name" placeholder="যার নামে অর্জিত" id="last">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
+                        <label class="required">সম্পত্তির পরিমাণ</label>
                         <input type="text" class="form-control" name="vehicle_property_amount" placeholder="সম্পত্তির পরিমাণ" id="last">
                     </div>
                 </div>
@@ -273,13 +311,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="vehicle_reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য" id="company">
+                        <label class="required">কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য</label>
+                        <input type="text" class="form-control" name="vehicle_reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য" id="company">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="vehicle_source_money" id="phone" placeholder="ক্রয় হলে অর্থের উত্স">
+                        <label class="required">ক্রয় হলে অর্থের উত্স</label>
+                        <input type="text" class="form-control" name="vehicle_source_money" id="phone" placeholder="ক্রয় হলে অর্থের উত্স">
                     </div>
                 </div>
             </div>
@@ -287,13 +327,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="vehicle_acquisition_address" id="email" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান">
+                        <label class="required">সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান</label>
+                        <input type="text" class="form-control" name="vehicle_acquisition_address" id="email" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="vehicle_comments" id="url" placeholder="মন্তব্য">
+                        <label class="required">মন্তব্য</label>
+                        <input type="text" class="form-control" name="vehicle_comments" id="url" placeholder="মন্তব্য">
                     </div>
                 </div>
             </div>
@@ -304,16 +346,19 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="electronics_acquisition_date" placeholder="সম্পদ অর্জনের তারিখ" id="electronics_acquisition_date">
+                        <label class="required">সম্পদ অর্জনের তারিখ</label>
+                        <input type="text" class="form-control" name="electronics_acquisition_date" placeholder="২১/০৯/২০২১" id="electronics_acquisition_date">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="electronics_acquisition_name" placeholder="যার নামে অর্জিত" id="last">
+                        <label class="required">যার নামে অর্জিত</label>
+                        <input type="text" class="form-control" name="electronics_acquisition_name" placeholder="যার নামে অর্জিত" id="last">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
+                        <label class="required">সম্পত্তির পরিমাণ</label>
                         <input type="text" class="form-control" name="electronics_property_amount" placeholder="সম্পত্তির পরিমাণ" id="last">
                     </div>
                 </div>
@@ -322,13 +367,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="electronics_reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য" id="company">
+                        <label class="required">কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য</label>
+                        <input type="text" class="form-control" name="electronics_reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য" id="company">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="electronics_source_money" id="phone" placeholder="ক্রয় হলে অর্থের উত্স">
+                        <label class="required">ক্রয় হলে অর্থের উত্স</label>
+                        <input type="text" class="form-control" name="electronics_source_money" id="phone" placeholder="ক্রয় হলে অর্থের উত্স">
                     </div>
                 </div>
             </div>
@@ -336,13 +383,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="electronics_acquisition_address" id="email" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান">
+                        <label class="required">সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান</label>
+                        <input type="text" class="form-control" name="electronics_acquisition_address" id="email" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                    <input type="text" class="form-control" name="electronics_comments" id="url" placeholder="মন্তব্য">
+                        <label class="required">মন্তব্য</label>
+                        <input type="text" class="form-control" name="electronics_comments" id="url" placeholder="মন্তব্য">
                     </div>
                 </div>
             </div>

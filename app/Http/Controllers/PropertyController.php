@@ -171,6 +171,17 @@ class PropertyController extends Controller
     public function view()
     {
         $land = Land::where('user_id', Auth::user()->id)->first();
-        return view('view', compact('land'));
+        $building = Building::where('user_id', Auth::user()->id)->first();
+        $home = Home::where('user_id', Auth::user()->id)->first();
+        $business = Business::where('user_id', Auth::user()->id)->first();
+        $ornament = Ornament::where('user_id', Auth::user()->id)->first();
+        $stock = Stock::where('user_id', Auth::user()->id)->first();
+        $share = Share::where('user_id', Auth::user()->id)->first();
+        $bima = Bima::where('user_id', Auth::user()->id)->first();
+        $cash = Cash::where('user_id', Auth::user()->id)->first();
+        $vehicle = Vehicle::where('user_id', Auth::user()->id)->first();
+        $electronics = Electronic::where('user_id', Auth::user()->id)->first();
+        return view('view', compact('land', 'building', 'home', 'business', 'ornament', 'stock',
+                                    'share', 'bima', 'cash', 'vehicle', 'electronics'));
     }
 }
