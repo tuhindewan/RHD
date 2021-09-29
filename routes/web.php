@@ -14,9 +14,7 @@ use App\Http\Controllers\PropertyController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'landing']);
 
 Auth::routes();
 
