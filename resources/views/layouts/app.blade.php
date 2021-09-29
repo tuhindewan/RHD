@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -82,7 +82,6 @@
             @yield('content')
         </main>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="{{ asset('js/jQuery.print.js') }}"></script>
     <script type="text/javascript">
 
@@ -93,7 +92,7 @@
 			function(){
 
 				// Hook up the print link.
-				$( "a" )
+				$( ".print_statement")
 					.attr( "href", "javascript:void( 0 )" )
 					.click(
 						function(){
