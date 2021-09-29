@@ -23,14 +23,14 @@
                 </div>
                 <div class="card-content collapse show">
                     <div class="card-body">
-                        {!! Form::open(['class' => 'form appraisal-request-form']) !!}
+                        {!! Form::open(['route' =>  ['type.store'], 'class' => 'form appraisal-request-form']) !!}
 
 
                             <div class="form-body">
                                 <div class="row row justify-content-center">
                                     <div class="col-md-6">
 
-                                        <div class="form-group {{ $errors->has('joining_date_govt_job') ? ' error' : '' }}">
+                                        <div class="form-group {{ $errors->has('name') ? ' error' : '' }}">
                                             {!! Form::label('name', trans('labels.type'), ['class' => 'form-label required']) !!}
                                             {!! Form::text('name', null,
                                                 [

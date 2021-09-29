@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class PropertyType extends Model
 {
     use HasFactory;
+
+    public $table = 'property_types';
+
+    protected $fillable = [
+        'name'
+    ];
 }

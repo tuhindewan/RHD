@@ -29,4 +29,5 @@ Route::prefix('property')->group(function() {
     Route::get('/types', [PropertyTypeController::class, 'index'])
             ->name('type.index');
     Route::get('/type/create', [PropertyTypeController::class, 'create'])->name('type.create');
+    Route::post('/type', [PropertyTypeController::class, 'store'])->name('type.store');
 });
