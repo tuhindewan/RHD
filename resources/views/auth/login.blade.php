@@ -392,7 +392,7 @@
                 </div>
                 <div class=" two-logo">
                     <div class="left">
-                        <a target="_blank" href="https://https//rhd.portal.gov.bd/"><img src="{{ asset('images/img/logo.jpeg') }}" alt=""></a>
+                        <a target="_blank" href="https://rhd.portal.gov.bd/"><img src="{{ asset('images/img/logo.jpeg') }}" alt=""></a>
                     </div>
                     {{-- <div class="right">
                         <img src="{{ asset('images/img/logo-final1.png') }}" alt="">

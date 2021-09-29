@@ -2,41 +2,44 @@
     <div class="main-menu-content">
 
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class="nav-item">
-                <a href=""><i class="la la-home"></i>
+            <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
+                <a href="{{ route('home') }}"><i class="la la-home"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">@lang('labels.dashboard') </span>
                 </a>
             </li>
-            {{-- @cannot('system-analyst')
-                <li class="nav-item">
-                    <a href="javascript:;"><i class="la la-list"></i>
-                        <span class="menu-title" data-i18n="nav.dash.main">@lang('hrm::appraisal.acr')</span>
-                    </a>
-                    <ul class="menu-content">
-                        <li class="nav-item {{ is_active_route('appraisal-request.index') }}">
-                            <a class="nav-link" href="{{ route('appraisal-request.index') }}"><i class="la la-list"></i>
-                                <span class="menu-title"
-                                      data-i18n="nav.dash.main">@lang('hrm::appraisal.request') @lang('labels.list')</span>
-                            </a>
-                        </li>
-                        <li class="nav-item {{ is_active_route('ng-appraisal-request.index') }}">
-                            <a class="nav-link" href="{{ route('ng-appraisal-request.index') }}"><i
-                                    class="la la-list"></i>
-                                <span class="menu-title"
-                                      data-i18n="nav.dash.main">@lang('hrm::appraisal.request') @lang('labels.list') (NG)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item {{ is_active_route('appraisal-report.index') }}">
-                            <a class="nav-link" href="{{ route('appraisal-report.index') }}"><i class="la la-list"></i>
-                                <span class="menu-title"
-                                      data-i18n="nav.dash.main">@lang('hrm::appraisal.report') @lang('labels.list')</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            @endcannot
-            @if(auth()->user()->can('system-analyst') || auth()->user()->can('system-super-admin'))
-                <li class="nav-item">
+
+            <li class="nav-item {{ Route::is('type.index') ? 'active' : '' }}">
+                <a href="{{ route('type.index') }}"><i class="la la-list"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">@lang('labels.property_type') </span>
+                </a>
+            </li>
+            {{-- <li class="nav-item">
+                <a href="javascript:;"><i class="la la-list"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">@lang('hrm::appraisal.acr')</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="nav-item">
+                        <a class="nav-link" href=""><i class="la la-list"></i>
+                            <span class="menu-title"
+                                    data-i18n="nav.dash.main">@lang('hrm::appraisal.request') @lang('labels.list')</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href=""><i
+                                class="la la-list"></i>
+                            <span class="menu-title"
+                                    data-i18n="nav.dash.main">@lang('hrm::appraisal.request') @lang('labels.list') (NG)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href=""><i class="la la-list"></i>
+                            <span class="menu-title"
+                                    data-i18n="nav.dash.main">@lang('hrm::appraisal.report') @lang('labels.list')</span>
+                        </a>
+                    </li>
+                </ul>
+            </li> --}}
+                {{-- <li class="nav-item">
                     <a href="javascript:;"><i class="la la-list"></i>
                         <span class="menu-title" data-i18n="nav.dash.main">@lang('labels.status_approved') @lang('labels.list')</span>
                     </a>
@@ -54,8 +57,8 @@
                             </a>
                         </li>
                     </ul>
-                </li>
-                <li class="nav-item">
+                </li> --}}
+                {{-- <li class="nav-item">
                     <a href="javascript:;"><i class="la la-list"></i>
                         <span class="menu-title" data-i18n="nav.dash.main">@lang('hrm::appraisal.report')</span>
                     </a>
@@ -73,8 +76,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
-            @endif --}}
+                </li> --}}
             {{-- <li class="nav-item">
                 <a href="javascript:;"><i class="la la-cogs"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">@lang('labels.settings')</span>

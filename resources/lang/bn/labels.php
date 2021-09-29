@@ -215,4 +215,6 @@ return [
     'gazetted' => 'গেজেটেড',
     'non-gazetted' => 'নন-গেজেটেড',
     'officer' => 'অফিসার',
+    'property_type' => 'সম্পদ / সম্পত্তির ধরণ',
+    'type' => 'ধরণ',
 ];

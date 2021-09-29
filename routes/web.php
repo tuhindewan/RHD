@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\PropertyTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/asset-statement', [PropertyController::class, 'index'])->name('statement');
 Route::post('/', [PropertyController::class, 'store'])->name('statement.store');
 Route::get('/asset-statement-view', [PropertyController::class, 'view'])->name('view');
+
+//property type
+Route::get('propert-types', [PropertyTypeController::class, 'index'])->name('type.index');
