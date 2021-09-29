@@ -25,4 +25,8 @@ Route::post('/', [PropertyController::class, 'store'])->name('statement.store');
 Route::get('/asset-statement-view', [PropertyController::class, 'view'])->name('view');
 
 //property type
-Route::get('propert-types', [PropertyTypeController::class, 'index'])->name('type.index');
+Route::prefix('property')->group(function() {
+    Route::get('/types', [PropertyTypeController::class, 'index'])
+            ->name('type.index');
+    Route::get('/type/create', [PropertyTypeController::class, 'create'])->name('type.create');
+});

@@ -10,4 +10,9 @@ class PropertyTypeController extends Controller
     {
         return view('type.index');
     }
+
+    public function create()
+    {
+        return view('type.create');
+    }
 }
