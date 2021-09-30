@@ -8,7 +8,7 @@
                 </a>
             </li>
 
-            <li class="nav-item {{ Route::is('type.index') ? 'active' : '' }}">
+            <li class="nav-item {{ Route::is('type.index') || Route::is('type.create') || Route::is('type.edit') ? 'active' : '' }} ">
                 <a href="{{ route('type.index') }}"><i class="la la-list"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">@lang('labels.property_type') </span>
                 </a>

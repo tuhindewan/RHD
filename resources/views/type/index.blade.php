@@ -35,6 +35,7 @@
                             <thead>
                             <tr>
                                 <th>@lang('labels.serial')</th>
+                                <th>@lang('labels.category')</th>
                                 <th>@lang('labels.type')</th>
                                 <th>@lang('labels.action')</th>
                             </tr>
@@ -43,6 +44,9 @@
                             @foreach($types as $type)
                                 <tr>
                                     <th scope="row">{{ $loop->iteration }}</th>
+                                    <td>
+                                        {{ $type->category->name }}
+                                    </td>
                                     <td>
                                         {{ $type->name }}
                                     </td>

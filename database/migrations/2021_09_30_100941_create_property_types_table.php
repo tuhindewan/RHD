@@ -16,6 +16,10 @@ class CreatePropertyTypesTable extends Migration
         Schema::create('property_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('category_id')
+                    ->constrained('property_categories')
+                    ->onUpdate('cascade')
+                    ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -12,6 +12,12 @@ class PropertyType extends Model
     public $table = 'property_types';
 
     protected $fillable = [
-        'name'
+        'name',
+        'category_id'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(PropertyCategory::class);
+    }
 }

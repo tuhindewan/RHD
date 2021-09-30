@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', __('labels.property_type'))
+@section('title', __('labels.property_statement'))
 
 @push('page-css')
 
@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title"
-                        id="striped-row-layout-basic">@lang('labels.property_type') @lang('labels.form')</h4>
+                        id="striped-row-layout-basic">@lang('labels.property_statement') @lang('labels.form')</h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                     <div class="heading-elements">
                         {{-- <ul class="list-inline mb-0">
@@ -23,32 +23,14 @@
                 </div>
                 <div class="card-content collapse show">
                     <div class="card-body">
-                        {!! Form::open(['route' =>  ['type.update', $type], 'class' => 'form appraisal-request-form']) !!}
+                        {!! Form::open(['route' =>  ['type.store'], 'class' => 'form appraisal-request-form']) !!}
 
                         <div class="form-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group {{ $errors->has('category_id') ? ' error' : '' }}">
-                                        {!! Form::label('category_id', trans('labels.type'), ['class' => 'form-label required']) !!}
-                                        {!! Form::select('category_id',
-                                             $categories, $type->id,
-                                            [
-                                                'class'=>'form-control select required' . ($errors->has('category_id') ? ' is-invalid' : ''),
-                                                'data-msg-required' => trans('labels.This field is required'),'placeholder' => 'শ্রেণী পছন্দ করুন'
-                                            ])
-                                        !!}
-                                        <div class="help-block"></div>
-                                        @if ($errors->has('category_id'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('category_id') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
+                            <div class="row justify-content-center">
                                 <div class="col-md-6">
                                     <div class="form-group {{ $errors->has('name') ? ' error' : '' }}">
                                         {!! Form::label('name', trans('labels.type'), ['class' => 'form-label required']) !!}
-                                        {!! Form::text('name', $type->name,
+                                        {!! Form::text('name', null,
                                             [
                                                 'class' => "form-control",
                                                 "required ",
@@ -79,7 +61,6 @@
                                 </a>
                             </div>
                         </div>
-
                         {!! Form::close() !!}
                     </div>
                 </div>
@@ -97,8 +78,6 @@
     <script>
         $(document).ready(() => {
             $("input,select,textarea").not("[type=submit]").jqBootstrapValidation("destroy");
-
-            $('.select').select2();
         });
 
         jQuery.validator.addMethod("birthDate", function(value, element) {

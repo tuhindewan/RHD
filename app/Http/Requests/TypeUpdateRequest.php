@@ -25,6 +25,7 @@ class TypeUpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:100',
+            'category_id' => 'required'
         ];
     }
 
@@ -33,6 +34,7 @@ class TypeUpdateRequest extends FormRequest
         return [
             'name.required' => 'Property type is required',
             'name.max' => 'More than 100 characters is not acceptable',
+            'category_id.required' => 'Property category is required',
         ];
     }
 }

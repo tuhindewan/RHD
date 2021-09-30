@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PropertyType;
 use Illuminate\Http\Request;
+use App\Models\PropertyCategory;
 use App\Http\Requests\TypeStoreRequest;
 use App\Http\Requests\TypeUpdateRequest;
 
@@ -17,13 +18,16 @@ class PropertyTypeController extends Controller
 
     public function create()
     {
-        return view('type.create');
+        $categories = PropertyCategory::all()->pluck('name', 'id');
+        return view('type.create', compact('categories'));
     }
 
     public function store(TypeStoreRequest $request)
     {
+        // dd($request->all());
         PropertyType::create([
-            'name' => $request->name
+            'name' => $request->name,
+            'category_id' => $request->category_id
         ]);
 
         return redirect()->route('type.index')
@@ -32,7 +36,8 @@ class PropertyTypeController extends Controller
 
     public function edit(PropertyType $type)
     {
-        return view('type.edit', compact('type'));
+        $categories = PropertyCategory::all()->pluck('name', 'id');
+        return view('type.edit', compact('type', 'categories'));
     }
 
     public function update(TypeUpdateRequest $request, PropertyType $type)
@@ -42,4 +47,5 @@ class PropertyTypeController extends Controller
         return redirect()->route('type.index')
                 ->with('success', 'সম্পদ / সম্পত্তির ধরণ সফল ভাবে পরিবর্তন করা হয়েছে');
     }
+
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\PropertyStatementController;
 use App\Http\Controllers\PropertyTypeController;
 
 /*
@@ -32,4 +33,9 @@ Route::prefix('property')->group(function() {
     Route::post('/type', [PropertyTypeController::class, 'store'])->name('type.store');
     Route::get('/type/edit/{type}', [PropertyTypeController::class, 'edit'])->name('type.edit');
     Route::post('/type/edit/{type}', [PropertyTypeController::class, 'update'])->name('type.update');
+});
+
+//Property Statement
+Route::prefix('property')->group(function() {
+    Route::get('/statement/create', [PropertyStatementController::class, 'create'])->name('statement.create');
 });

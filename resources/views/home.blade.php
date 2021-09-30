@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xl-3 col-lg-6 col-12">
-            <a href="{{ route('statement') }}" class="eti-link">
+            <a href="{{ route('statement.create') }}" class="eti-link">
                 <div class="card bg-success">
                     <div class="card-content">
                         <div class="card-body">

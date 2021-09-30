@@ -22,11 +22,29 @@
                     </div>
                 </div>
                 <div class="card-content collapse show">
-                    <div class="card-body">
+                    <div class="card-body" style="padding: 1rem 1.5rem">
                         {!! Form::open(['route' =>  ['type.store'], 'class' => 'form appraisal-request-form']) !!}
 
                         <div class="form-body">
                             <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    <div class="form-group {{ $errors->has('category_id') ? ' error' : '' }}">
+                                        {!! Form::label('category_id', trans('labels.type'), ['class' => 'form-label required']) !!}
+                                        {!! Form::select('category_id',
+                                             $categories, null,
+                                            [
+                                                'class'=>'form-control select required' . ($errors->has('category_id') ? ' is-invalid' : ''),
+                                                'data-msg-required' => trans('labels.This field is required'),'placeholder' => 'শ্রেণী পছন্দ করুন'
+                                            ])
+                                        !!}
+                                        <div class="help-block"></div>
+                                        @if ($errors->has('category_id'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('category_id') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group {{ $errors->has('name') ? ' error' : '' }}">
                                         {!! Form::label('name', trans('labels.type'), ['class' => 'form-label required']) !!}
@@ -78,6 +96,8 @@
     <script>
         $(document).ready(() => {
             $("input,select,textarea").not("[type=submit]").jqBootstrapValidation("destroy");
+
+            $('.select').select2();
         });
 
         jQuery.validator.addMethod("birthDate", function(value, element) {
