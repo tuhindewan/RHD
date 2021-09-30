@@ -40,11 +40,11 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {{-- @foreach($actions as $action) --}}
+                            @foreach($types as $type)
                                 <tr>
-                                    <th scope="row">1</th>
+                                    <th scope="row">{{ $loop->iteration }}</th>
                                     <td>
-                                        test
+                                        {{ $type->name }}
                                     </td>
                                     <td>
                                         <button id="btnAction" type="button" data-toggle="dropdown"
@@ -54,17 +54,17 @@
                                         </button>
                                         <span aria-labelledby="btnAction"
                                               class="dropdown-menu mt-1 dropdown-menu-right">
-                                                <a class="dropdown-item"
-                                                   href=""><i
-                                                        class="ft-eye"></i> @lang('labels.details')</a>
-                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="{{ route('type.edit', $type) }}">
+                                                   <i class="ft-edit"></i> @lang('labels.edit')
+                                                </a>
+                                                {{-- <div class="dropdown-divider"></div>
                                                 <a class="dropdown-item" target="_blank"
                                                    href=""><i
-                                                        class="la la-print"></i> @lang('labels.print')</a>
+                                                        class="la la-print"></i> @lang('labels.print')</a> --}}
                                             </span>
                                     </td>
                                 </tr>
-                            {{-- @endforeach --}}
+                            @endforeach
                             </tbody>
 
                         </table>

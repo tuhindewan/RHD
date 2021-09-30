@@ -10,7 +10,8 @@ class PropertyTypeController extends Controller
 {
     public function index()
     {
-        return view('type.index');
+        $types = PropertyType::all();
+        return view('type.index', compact('types'));
     }
 
     public function create()
@@ -26,5 +27,10 @@ class PropertyTypeController extends Controller
 
         return redirect()->route('type.index')
                 ->with('success', 'সম্পদ / সম্পত্তির ধরণ সফল ভাবে সংরক্ষণ করা হয়েছে');
+    }
+
+    public function edit(PropertyType $type)
+    {
+        dd($type);
     }
 }
