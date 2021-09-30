@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TypeStoreRequest;
 use App\Models\PropertyType;
 use Illuminate\Http\Request;
+use App\Http\Requests\TypeStoreRequest;
+use App\Http\Requests\TypeUpdateRequest;
 
 class PropertyTypeController extends Controller
 {
@@ -31,6 +32,14 @@ class PropertyTypeController extends Controller
 
     public function edit(PropertyType $type)
     {
-        dd($type);
+        return view('type.edit', compact('type'));
+    }
+
+    public function update(TypeUpdateRequest $request, PropertyType $type)
+    {
+        $type->update($request->all());
+
+        return redirect()->route('type.index')
+                ->with('success', 'সম্পদ / সম্পত্তির ধরণ সফল ভাবে পরিবর্তন করা হয়েছে');
     }
 }

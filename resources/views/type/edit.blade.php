@@ -23,14 +23,14 @@
                 </div>
                 <div class="card-content collapse show">
                     <div class="card-body">
-                        {!! Form::open(['route' =>  ['type.store'], 'class' => 'form appraisal-request-form']) !!}
+                        {!! Form::open(['route' =>  ['type.update', $type], 'class' => 'form appraisal-request-form']) !!}
 
                         <div class="form-body">
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
                                     <div class="form-group {{ $errors->has('name') ? ' error' : '' }}">
                                         {!! Form::label('name', trans('labels.type'), ['class' => 'form-label required']) !!}
-                                        {!! Form::text('name', null,
+                                        {!! Form::text('name', $type->name,
                                             [
                                                 'class' => "form-control",
                                                 "required ",
@@ -61,6 +61,7 @@
                                 </a>
                             </div>
                         </div>
+
                         {!! Form::close() !!}
                     </div>
                 </div>
