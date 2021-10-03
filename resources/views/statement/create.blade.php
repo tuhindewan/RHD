@@ -116,24 +116,24 @@
                         </div>
                         {!! Form::close() !!} --}}
 
-                        <form action="{{ route('statement.store') }}" method="POST">
+                        <form action="{{ route('statement.store') }}" method="POST" class="appraisal-request-form">
                             @csrf
                             <h4 class="form-section"><i class="ft-user"></i> @lang('labels.property_type')</h4>
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
-                                    <div class="form-group {{ $errors->has('category_id') ? ' error' : '' }}">
-                                        {!! Form::label('category_id', trans('labels.type'), ['class' => 'form-label required']) !!}
-                                        {!! Form::select('category_id',
+                                    <div class="form-group {{ $errors->has('type_id') ? ' error' : '' }}">
+                                        {!! Form::label('type_id', trans('labels.type'), ['class' => 'form-label required']) !!}
+                                        {!! Form::select('type_id',
                                                 $types, null,
                                             [
-                                                'class'=>'form-control select required' . ($errors->has('category_id') ? ' is-invalid' : ''),
+                                                'class'=>'form-control select required' . ($errors->has('type_id') ? ' is-invalid' : ''),
                                                 'data-msg-required' => trans('labels.This field is required'),'placeholder' => 'ধরণ নির্ধারণ করুন'
                                             ])
                                         !!}
                                         <div class="help-block"></div>
-                                        @if ($errors->has('category_id'))
+                                        @if ($errors->has('type_id'))
                                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('category_id') }}</strong>
+                                                <strong>{{ $errors->first('type_id') }}</strong>
                                             </span>
                                         @endif
                                     </div>
@@ -150,19 +150,23 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label class="required">সম্পদ অর্জনের তারিখ</label>
-                                                                <input type="text" class="form-control" name="acquisition_date" placeholder="২১/০৯/২০২১" id="acquisition_date">
+                                                                <input type="text" class="form-control required @error('acquisition_date') is-invalid @enderror"
+                                                                        name="acquisition_date" placeholder="২১/০৯/২০২১"
+                                                                        data-msg-required="{{ __('labels.This field is required') }}">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group">
-                                                                <label class="required">যার নামে অর্জিত</label>
+                                                                <label>যার নামে অর্জিত</label>
                                                                 <input type="text" class="form-control" name="acquisition_name" placeholder="যার নামে অর্জিত" id="last">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label class="required">সম্পত্তির পরিমাণ</label>
-                                                                <input type="text" class="form-control" name="property_amount" placeholder="সম্পত্তির পরিমাণ" id="last">
+                                                                <input type="text" class="form-control required @error('property_amount') is-invalid @enderror"
+                                                                        name="property_amount" placeholder="সম্পত্তির পরিমাণ"
+                                                                        data-msg-required="{{ __('labels.This field is required') }}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -171,14 +175,18 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label class="required">কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য</label>
-                                                                <input type="text" class="form-control" name="reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য" id="company">
+                                                                <input type="text" class="form-control required @error('reason_price') is-invalid @enderror"
+                                                                        name="reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য"
+                                                                        data-msg-required="{{ __('labels.This field is required') }}">
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label class="required">ক্রয় হলে অর্থের উত্স</label>
-                                                                <input type="text" class="form-control" name="source_money" id="phone" placeholder="ক্রয় হলে অর্থের উত্স">
+                                                                <input type="text" class="form-control required @error('reason_price') is-invalid @enderror"
+                                                                        name="source_money" placeholder="ক্রয় হলে অর্থের উত্স"
+                                                                        data-msg-required="{{ __('labels.This field is required') }}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -187,7 +195,9 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label class="required">সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান</label>
-                                                                <input type="text" class="form-control" name="acquisition_address" id="email" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান">
+                                                                <input type="text" class="form-control required @error('acquisition_address') is-invalid @enderror"
+                                                                        name="acquisition_address" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান"
+                                                                        data-msg-required="{{ __('labels.This field is required') }}">
                                                             </div>
                                                         </div>
 

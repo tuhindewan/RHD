@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\PropertyType;
+use App\Models\Statement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PropertyStatementController extends Controller
 {
@@ -36,7 +38,20 @@ class PropertyStatementController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->input('category-group'));
+        foreach($request->input('category-group') as $data){
+            Statement::create([
+                'acquisition_date' => $data['acquisition_date'],
+                'acquisition_name' => $data['acquisition_name'],
+                'property_amount' => $data['property_amount'],
+                'reason_price' => $data['reason_price'],
+                'source_money' => $data['source_money'],
+                'acquisition_address' => $data['acquisition_address'],
+                'comments' => $data['comments'],
+                'user_id' => Auth::user()->id,
+                'type_id' => $request->type_id
+            ]);
+        }
     }
 
     /**
