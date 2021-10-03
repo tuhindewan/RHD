@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/asset-statement', [PropertyController::class, 'index'])->name('statement');
-Route::post('/', [PropertyController::class, 'store'])->name('statement.store');
+// Route::post('/', [PropertyController::class, 'store'])->name('statement.store');
 Route::get('/asset-statement-view', [PropertyController::class, 'view'])->name('view');
 
 //property type
@@ -38,4 +38,5 @@ Route::prefix('property')->group(function() {
 //Property Statement
 Route::prefix('property')->group(function() {
     Route::get('/statement/create', [PropertyStatementController::class, 'create'])->name('statement.create');
+    Route::post('/statement', [PropertyStatementController::class, 'store'])->name('statement.store');
 });

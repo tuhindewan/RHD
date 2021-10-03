@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PropertyType;
 use Illuminate\Http\Request;
 
 class PropertyStatementController extends Controller
@@ -23,7 +24,8 @@ class PropertyStatementController extends Controller
      */
     public function create()
     {
-        return view('statement.create');
+        $types = PropertyType::all()->pluck('name', 'id');
+        return view('statement.create', compact('types'));
     }
 
     /**
@@ -34,7 +36,7 @@ class PropertyStatementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

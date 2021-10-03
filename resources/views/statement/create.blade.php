@@ -23,35 +23,88 @@
                 </div>
                 <div class="card-content collapse show">
                     <div class="card-body">
-                        {!! Form::open(['route' =>  ['type.store'], 'class' => 'form appraisal-request-form']) !!}
+                        {{-- {!! Form::open(['route' =>  ['type.store'], 'class' => 'form appraisal-request-form']) !!}
 
                         <div class="form-body">
+                            <h4 class="form-section"><i class="ft-user"></i> @lang('labels.property_type')</h4>
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
-                                    <div class="form-group {{ $errors->has('name') ? ' error' : '' }}">
-                                        {!! Form::label('name', trans('labels.type'), ['class' => 'form-label required']) !!}
-                                        {!! Form::text('name', null,
+                                    <div class="form-group {{ $errors->has('category_id') ? ' error' : '' }}">
+                                        {!! Form::label('category_id', trans('labels.type'), ['class' => 'form-label required']) !!}
+                                        {!! Form::select('category_id',
+                                             $types, null,
                                             [
-                                                'class' => "form-control",
-                                                "required ",
-                                                "placeholder" => trans('labels.type'),
-                                                'data-msg-required' => trans('labels.This field is required'),
-                                                'data-rule-maxlength' => 100,
-                                                'data-msg-maxlength'=> trans('labels.At most 100 characters'),
-                                                'style' => 'margin: 0px'
-
+                                                'class'=>'form-control select required' . ($errors->has('category_id') ? ' is-invalid' : ''),
+                                                'data-msg-required' => trans('labels.This field is required'),'placeholder' => 'ধরণ নির্ধারণ করুন'
                                             ])
                                         !!}
                                         <div class="help-block"></div>
-                                        @if ($errors->has('name'))
+                                        @if ($errors->has('category_id'))
                                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('name') }}</strong>
+                                                <strong>{{ $errors->first('category_id') }}</strong>
                                             </span>
                                         @endif
                                     </div>
                                 </div>
                             </div>
 
+                            <h4 class="form-section"><i class="ft-user"></i>হিসাব বিবরণ</h4>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="required">সম্পদ অর্জনের তারিখ</label>
+                                                <input type="text" class="form-control" name="land_acquisition_date" placeholder="২১/০৯/২০২১" id="land_acquisition_date">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="required">যার নামে অর্জিত</label>
+                                                <input type="text" class="form-control" name="land_acquisition_name" placeholder="যার নামে অর্জিত" id="last">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="required">সম্পত্তির পরিমাণ</label>
+                                                <input type="text" class="form-control" name="land_property_amount" placeholder="সম্পত্তির পরিমাণ" id="last">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য</label>
+                                                <input type="text" class="form-control" name="land_reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য" id="company">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">ক্রয় হলে অর্থের উত্স</label>
+                                                <input type="text" class="form-control" name="land_source_money" id="phone" placeholder="ক্রয় হলে অর্থের উত্স">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান</label>
+                                                <input type="text" class="form-control" name="land_acquisition_address" id="email" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">মন্তব্য</label>
+                                                <input type="text" class="form-control" name="land_comments" id="url" placeholder="মন্তব্য">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-actions text-center">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="la la-check-square-o"></i> @lang('labels.save')
@@ -61,7 +114,127 @@
                                 </a>
                             </div>
                         </div>
-                        {!! Form::close() !!}
+                        {!! Form::close() !!} --}}
+
+                        <form action="{{ route('statement.store') }}" method="POST">
+                            @csrf
+                            <h4 class="form-section"><i class="ft-user"></i> @lang('labels.property_type')</h4>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    <div class="form-group {{ $errors->has('category_id') ? ' error' : '' }}">
+                                        {!! Form::label('category_id', trans('labels.type'), ['class' => 'form-label required']) !!}
+                                        {!! Form::select('category_id',
+                                                $types, null,
+                                            [
+                                                'class'=>'form-control select required' . ($errors->has('category_id') ? ' is-invalid' : ''),
+                                                'data-msg-required' => trans('labels.This field is required'),'placeholder' => 'ধরণ নির্ধারণ করুন'
+                                            ])
+                                        !!}
+                                        <div class="help-block"></div>
+                                        @if ($errors->has('category_id'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('category_id') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="repeater">
+                                <div data-repeater-list="category-group">
+                                    <div data-repeater-item>
+                                        <div class="form-body">
+                                            <h4 class="form-section"><i class="ft-user"></i>হিসাব বিবরণ</h4>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="required">সম্পদ অর্জনের তারিখ</label>
+                                                                <input type="text" class="form-control" name="acquisition_date" placeholder="২১/০৯/২০২১" id="acquisition_date">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="required">যার নামে অর্জিত</label>
+                                                                <input type="text" class="form-control" name="acquisition_name" placeholder="যার নামে অর্জিত" id="last">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="required">সম্পত্তির পরিমাণ</label>
+                                                                <input type="text" class="form-control" name="property_amount" placeholder="সম্পত্তির পরিমাণ" id="last">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="required">কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য</label>
+                                                                <input type="text" class="form-control" name="reason_price" placeholder="কিভাবে অর্জিত ও অর্জনের তারিখে মূল্য" id="company">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="required">ক্রয় হলে অর্থের উত্স</label>
+                                                                <input type="text" class="form-control" name="source_money" id="phone" placeholder="ক্রয় হলে অর্থের উত্স">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="required">সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান</label>
+                                                                <input type="text" class="form-control" name="acquisition_address" id="email" placeholder="সম্পদ / সম্পত্তির প্রকৃতি ও অবস্থান">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="required">মন্তব্য</label>
+                                                                <input type="text" class="form-control" name="comments" id="url" placeholder="মন্তব্য">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-group overflow-auto">
+                                            <div class="col-12">
+                                                <button type="button" data-repeater-delete="" id="add_more_room"
+                                                        class="pull-left btn btn-sm btn-outline-danger">
+                                                    <i class="ft-minus"></i> @lang('labels.remove')
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="form-group overflow-auto">
+                                    <div class="col-12">
+                                        <button type="button" data-repeater-create="" id="add_more_room"
+                                                class="pull-right btn btn-sm btn-outline-primary">
+                                            <i class="ft-plus"></i> @lang('labels.add')
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="la la-check-square-o"></i> @lang('labels.save')
+                                </button>
+                                <a class="btn btn-warning mr-1" role="button" href="{{ route('type.index') }}">
+                                    <i class="la la-close"></i> @lang('labels.cancel')
+                                </a>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
@@ -78,6 +251,8 @@
     <script>
         $(document).ready(() => {
             $("input,select,textarea").not("[type=submit]").jqBootstrapValidation("destroy");
+
+            $('.select').select2();
         });
 
         jQuery.validator.addMethod("birthDate", function(value, element) {
@@ -118,4 +293,7 @@
             }
         });
     </script>
+
+    <script src="{{ asset('js/jquery-reapeter.js') }}"></script>
+
 @endpush
