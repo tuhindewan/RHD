@@ -124,7 +124,7 @@
                                     <div class="form-group {{ $errors->has('type_id') ? ' error' : '' }}">
                                         {!! Form::label('type_id', trans('labels.type'), ['class' => 'form-label required']) !!}
                                         {!! Form::select('type_id',
-                                                $types, null,
+                                                $types, $statement->type_id,
                                             [
                                                 'class'=>'form-control select required' . ($errors->has('type_id') ? ' is-invalid' : ''),
                                                 'data-msg-required' => trans('labels.This field is required'),'placeholder' => 'ধরণ নির্ধারণ করুন'
@@ -254,9 +254,10 @@
 @endsection
 
 @push('page-js')
-<script type="text/javascript"
-            src="{{ asset('theme/vendors/js/forms/validation/jquery.validate.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('theme/vendors/js/forms/validation/jquery.validate.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('theme/vendors/js/forms/repeater/jquery.repeater.min.js') }}"></script>
+
+
 
     <script>
         $(document).ready(() => {
@@ -264,6 +265,25 @@
 
             $('.select').select2();
 
+            let stateDetails = @json($stateDetails);
+
+
+            var historyEntryRepeater = $(`.repeater`).repeater({
+                // isFirstItemUndeletable: true,
+                initEmpty: true,
+                show: function () {
+                    $(this).slideDown();
+                },
+                hide: function (deleteElement) {
+                    if (confirm('Are you sure you want to delete this element?')) {
+                        $(this).slideUp(deleteElement);
+                    }
+                }
+            });
+
+            if (stateDetails.length) {
+                historyEntryRepeater.setList(stateDetails);
+            }
         });
 
         jQuery.validator.addMethod("birthDate", function(value, element) {
@@ -305,6 +325,5 @@
         });
     </script>
 
-    <script src="{{ asset('js/jquery-reapeter.js') }}"></script>
-
+{{-- <script src="{{ asset('js/jquery-reapeter.js') }}"></script> --}}
 @endpush

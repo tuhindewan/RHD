@@ -76,7 +76,7 @@
                                 <a href="{{ route('statement.submit', $statement->id) }}" class="btn btn-primary">
                                     <i class="la la-check-square-o"></i> @lang('labels.submit')
                                 </a>
-                                <a class="btn btn-warning mr-1" role="button" href="{{ route('type.index') }}">
+                                <a class="btn btn-warning mr-1" role="button" href="{{ route('statement.edit', $statement->id) }}">
                                     <i class="la la-edit"></i> @lang('labels.edit')
                                 </a>
                             </div>

@@ -88,7 +88,25 @@ class PropertyStatementController extends Controller
      */
     public function edit($id)
     {
-        //
+        $types = PropertyType::all()->pluck('name', 'id');
+        $statement = Statement::findOrFail($id);
+
+        // dd($statement->details);
+        $stateDetails = $statement->details->map(function ($sd) {
+            return ['acquisition_date' => $sd->acquisition_date,
+                    'acquisition_name' => $sd->acquisition_name,
+                    'property_amount' => $sd->property_amount,
+                    'reason_price' => $sd->reason_price,
+                    'source_money' => $sd->source_money,
+                    'acquisition_address' => $sd->acquisition_address,
+                    'comments' => $sd->comments
+                    ];
+        })->values();
+
+        // dd($stateDetails);
+
+
+        return view('statement.edit', compact('statement', 'types', 'stateDetails'));
     }
 
     /**
