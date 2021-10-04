@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Statement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,7 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $statements = Statement::all()->where('final_submition', '==', 1)
+                                      ->where('user_id', '==', Auth::user()->id);
+        return view('home', compact('statements'));
     }
 
     public function landing()
