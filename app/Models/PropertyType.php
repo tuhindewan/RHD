@@ -20,4 +20,9 @@ class PropertyType extends Model
     {
         return $this->belongsTo(PropertyCategory::class);
     }
+
+    public function statements()
+    {
+        return $this->hasMany(Statement::class);
+    }
 }

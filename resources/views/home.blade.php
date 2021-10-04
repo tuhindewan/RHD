@@ -11,7 +11,7 @@
                             <div class="media d-flex">
                                 <div class="align-self-center">
                                     <img class="title-icon" alt="title-icon"
-                                         src="https://i.imgur.com/fgZUgjr.png">
+                                         src="{{ asset('images/img/fgZUgjr.png') }}">
                                 </div>
                                 <div class="media-body text-white text-right">
                                     <h3 class="text-white">হিসাব বিবরণী @lang('labels.form')</h3>

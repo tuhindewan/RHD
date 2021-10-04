@@ -39,4 +39,6 @@ Route::prefix('property')->group(function() {
 Route::prefix('property')->group(function() {
     Route::get('/statement/create', [PropertyStatementController::class, 'create'])->name('statement.create');
     Route::post('/statement', [PropertyStatementController::class, 'store'])->name('statement.store');
+    Route::get('/statement/{id}/preview', [PropertyStatementController::class, 'show'])->name('statement.show');
+    Route::get('/statement/details', [PropertyStatementController::class, 'beforeFinalSubmit'])->name('statement.details');
 });

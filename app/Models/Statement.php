@@ -12,14 +12,17 @@ class Statement extends Model
     public $table = 'statements';
 
     public $fillable = [
-        'acquisition_date',
-        'property_amount',
-        'acquisition_name',
-        'comments',
-        'reason_price',
-        'source_money',
-        'acquisition_address',
         'type_id',
         'user_id'
     ];
+
+    public function details()
+    {
+        return $this->hasMany(StatementDetail::class);
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(PropertyType::class);
+    }
 }

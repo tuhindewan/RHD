@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PropertyType;
 use App\Models\Statement;
+use App\Models\PropertyType;
+use App\Models\StatementDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class PropertyStatementController extends Controller
@@ -38,20 +40,31 @@ class PropertyStatementController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->input('category-group'));
-        foreach($request->input('category-group') as $data){
-            Statement::create([
-                'acquisition_date' => $data['acquisition_date'],
-                'acquisition_name' => $data['acquisition_name'],
-                'property_amount' => $data['property_amount'],
-                'reason_price' => $data['reason_price'],
-                'source_money' => $data['source_money'],
-                'acquisition_address' => $data['acquisition_address'],
-                'comments' => $data['comments'],
+       $statement = DB::transaction(function () use($request) {
+            $statement = Statement::create([
                 'user_id' => Auth::user()->id,
                 'type_id' => $request->type_id
             ]);
-        }
+
+            foreach($request->input('category-group') as $data){
+                StatementDetail::create([
+                    'acquisition_date' => $data['acquisition_date'],
+                    'acquisition_name' => $data['acquisition_name'],
+                    'property_amount' => $data['property_amount'],
+                    'reason_price' => $data['reason_price'],
+                    'source_money' => $data['source_money'],
+                    'acquisition_address' => $data['acquisition_address'],
+                    'comments' => $data['comments'],
+                    'statement_id' => $statement->id,
+                ]);
+            }
+
+            return $statement;
+
+        });
+
+        return redirect()->route('statement.show', $statement->id)
+                ->with('success', 'সম্পদ / সম্পত্তির হিসাব বিবরণ সফল ভাবে সংরক্ষণ করা হয়েছে');
     }
 
     /**
@@ -62,7 +75,9 @@ class PropertyStatementController extends Controller
      */
     public function show($id)
     {
-        //
+        $statement = Statement::findOrFail($id);
+        // dd($statement->details);
+        return view('statement.preview', compact('statement'));
     }
 
     /**
@@ -97,5 +112,11 @@ class PropertyStatementController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function preview(Request $request)
+    {
+        $data = $request->all();
+        return view('statement.preview', compact('data'));
     }
 }

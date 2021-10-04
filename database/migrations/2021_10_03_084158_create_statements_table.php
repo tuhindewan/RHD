@@ -15,13 +15,6 @@ class CreateStatementsTable extends Migration
     {
         Schema::create('statements', function (Blueprint $table) {
             $table->id();
-            $table->string('acquisition_date');
-            $table->string('acquisition_name')->nullable();
-            $table->string('property_amount');
-            $table->string('reason_price');
-            $table->string('source_money');
-            $table->string('acquisition_address');
-            $table->string('comments')->nullable();
             $table->tinyInteger('final_submition')->default(0);
             $table->foreignId('type_id')
                     ->constrained('property_types')

@@ -151,7 +151,7 @@
                                                             <div class="form-group">
                                                                 <label class="required">সম্পদ অর্জনের তারিখ</label>
                                                                 <input type="text" class="form-control required @error('acquisition_date') is-invalid @enderror"
-                                                                        name="acquisition_date" placeholder="২১/০৯/২০২১"
+                                                                        name="acquisition_date" value="{{ old('acquisition_date') }}" placeholder="২১/০৯/২০২১"
                                                                         data-msg-required="{{ __('labels.This field is required') }}">
                                                             </div>
                                                         </div>
