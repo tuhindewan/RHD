@@ -118,7 +118,36 @@ class PropertyStatementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request->all());
+
+        $statement = Statement::findOrFail($id);
+
+        $statement = DB::transaction(function () use($request, $statement) {
+            DB::table('statements')->where('id', $statement->id)->update([
+                            'type_id' => $request->type_id,
+                        ]);
+
+            $statement->details()->delete();
+
+            foreach($request->input('category-group') as $data){
+                StatementDetail::create([
+                    'acquisition_date' => $data['acquisition_date'],
+                    'acquisition_name' => $data['acquisition_name'],
+                    'property_amount' => $data['property_amount'],
+                    'reason_price' => $data['reason_price'],
+                    'source_money' => $data['source_money'],
+                    'acquisition_address' => $data['acquisition_address'],
+                    'comments' => $data['comments'],
+                    'statement_id' => $statement->id,
+                ]);
+            }
+
+            return $statement;
+
+        });
+
+        return redirect()->route('statement.show', $statement->id)
+                ->with('success', 'সম্পদ / সম্পত্তির হিসাব বিবরণ সফল ভাবে সংরক্ষণ করা হয়েছে');
     }
 
     /**

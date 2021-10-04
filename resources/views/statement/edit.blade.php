@@ -116,8 +116,9 @@
                         </div>
                         {!! Form::close() !!} --}}
 
-                        <form action="{{ route('statement.store') }}" method="POST" class="appraisal-request-form">
+                        <form action="{{ route('statement.update', $statement->id) }}" method="POST" class="appraisal-request-form">
                             @csrf
+                            @method('PUT')
                             <h4 class="form-section"><i class="ft-user"></i> @lang('labels.property_type')</h4>
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
