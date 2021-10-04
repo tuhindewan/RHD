@@ -41,4 +41,5 @@ Route::prefix('property')->group(function() {
     Route::post('/statement', [PropertyStatementController::class, 'store'])->name('statement.store');
     Route::get('/statement/{id}/preview', [PropertyStatementController::class, 'show'])->name('statement.show');
     Route::get('/statement/details', [PropertyStatementController::class, 'beforeFinalSubmit'])->name('statement.details');
+    Route::get('/statement/{id}/final-submit', [PropertyStatementController::class, 'finalSubnit'])->name('statement.submit');
 });

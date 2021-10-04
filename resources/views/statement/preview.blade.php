@@ -71,14 +71,16 @@
 
                                 </tbody>
                               </table>
+                              @if (!$statement->final_submition)
                               <div class="form-actions text-center">
-                                <button type="submit" class="btn btn-primary">
+                                <a href="{{ route('statement.submit', $statement->id) }}" class="btn btn-primary">
                                     <i class="la la-check-square-o"></i> @lang('labels.submit')
-                                </button>
+                                </a>
                                 <a class="btn btn-warning mr-1" role="button" href="{{ route('type.index') }}">
                                     <i class="la la-edit"></i> @lang('labels.edit')
                                 </a>
                             </div>
+                              @endif
                         </form>
 
                     </div>

@@ -119,4 +119,18 @@ class PropertyStatementController extends Controller
         $data = $request->all();
         return view('statement.preview', compact('data'));
     }
+
+
+    public function finalSubnit($id)
+    {
+        $statement  = Statement::findOrFail($id);
+        $affected = DB::table('statements')
+              ->where('id', $statement->id)
+              ->update(['final_submition' => 1]);
+
+        if($affected){
+            return redirect()->route('home')
+                ->with('success', 'সম্পদ / সম্পত্তির হিসাব বিবরণ সফল ভাবে সংরক্ষণ করা হয়েছে');
+        }
+    }
 }
