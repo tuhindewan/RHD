@@ -46,4 +46,5 @@ Route::prefix('property')->group(function() {
     Route::put('/statement/{id}', [PropertyStatementController::class, 'update'])->name('statement.update');
     Route::get('/statement/overview', [PropertyStatementController::class, 'overview'])->name('statement.overview');
     Route::get('/statement/get-property-types/{id}', [PropertyStatementController::class, 'getPropertyTypes'])->name('satement.getType');
+    Route::get('/statement/overview/print', [PropertyStatementController::class, 'statementOverviewPrint'])->name('statement.overview.print');
 });

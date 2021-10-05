@@ -202,4 +202,15 @@ class PropertyStatementController extends Controller
         $types = PropertyType::all()->where('category_id', $id)->pluck('name', 'id');
         return json_encode($types);
     }
+
+    public function statementOverviewPrint()
+    {
+        $movables = Statement::all()->where('final_submition', '==', 1)
+                ->where('category_id', '==', 1)
+                ->where('user_id', '==', Auth::user()->id);
+        $immovables = Statement::all()->where('final_submition', '==', 1)
+                ->where('category_id', '==', 2)
+                ->where('user_id', '==', Auth::user()->id);
+        return view('statement.overview.print',compact('immovables', 'movables'));
+    }
 }

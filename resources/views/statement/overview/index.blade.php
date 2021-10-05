@@ -8,7 +8,7 @@
                 <div class="card-header">
                     <h3 class="card-title" style="float: left">সম্পদের হিসাব বিবরণী</h3>
                       <div class="card-tools" style="float: right">
-                          <a href="" class="btn btn-success print_statement">
+                          <a href="{{ route('statement.overview.print') }}" class="btn btn-success print_statement">
                               <i class="fas fa-print"></i> প্রিন্ট করুন
                           </a>
                       </div>
