@@ -12,6 +12,7 @@ class Statement extends Model
     public $table = 'statements';
 
     public $fillable = [
+        'category_id',
         'type_id',
         'user_id'
     ];

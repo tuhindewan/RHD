@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\PropertyStatementController;
 use App\Http\Controllers\PropertyTypeController;
+use App\Models\PropertyCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +45,5 @@ Route::prefix('property')->group(function() {
     Route::get('/statement/{id}/edit', [PropertyStatementController::class, 'edit'])->name('statement.edit');
     Route::put('/statement/{id}', [PropertyStatementController::class, 'update'])->name('statement.update');
     Route::get('/statement/overview', [PropertyStatementController::class, 'overview'])->name('statement.overview');
+    Route::get('/statement/get-property-types/{id}', [PropertyStatementController::class, 'getPropertyTypes'])->name('satement.getType');
 });

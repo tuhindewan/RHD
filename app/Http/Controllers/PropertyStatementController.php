@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PropertyCategory;
 use App\Models\Statement;
 use App\Models\PropertyType;
 use App\Models\StatementDetail;
@@ -29,7 +30,8 @@ class PropertyStatementController extends Controller
     public function create()
     {
         $types = PropertyType::all()->pluck('name', 'id');
-        return view('statement.create', compact('types'));
+        $categories = PropertyCategory::all()->pluck('name', 'id');
+        return view('statement.create', compact('types', 'categories'));
     }
 
     /**
@@ -40,10 +42,12 @@ class PropertyStatementController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
        $statement = DB::transaction(function () use($request) {
             $statement = Statement::create([
                 'user_id' => Auth::user()->id,
-                'type_id' => $request->type_id
+                'type_id' => $request->type_id,
+                'category_id' => $request->category_id
             ]);
 
             foreach($request->input('category-group') as $data){
@@ -125,6 +129,7 @@ class PropertyStatementController extends Controller
         $statement = DB::transaction(function () use($request, $statement) {
             DB::table('statements')->where('id', $statement->id)->update([
                             'type_id' => $request->type_id,
+                            'category_id' => $request->category_id
                         ]);
 
             $statement->details()->delete();
@@ -183,6 +188,15 @@ class PropertyStatementController extends Controller
 
     public function overview()
     {
+        $statements = Statement::all()->where('final_submition', '==', 1)
+                                      ->where('user_id', '==', Auth::user()->id);
+        dd($statements);
         return view('statement.overview.index');
+    }
+
+    public function getPropertyTypes($id)
+    {
+        $types = PropertyType::all()->where('category_id', $id)->pluck('name', 'id');
+        return json_encode($types);
     }
 }

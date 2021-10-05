@@ -121,6 +121,24 @@
                             <h4 class="form-section"><i class="ft-user"></i> @lang('labels.property_type')</h4>
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
+                                    <div class="form-group {{ $errors->has('category_id') ? ' error' : '' }}">
+                                        {!! Form::label('category_id', trans('labels.category'), ['class' => 'form-label required']) !!}
+                                        {!! Form::select('category_id',
+                                                $categories, null,
+                                            [
+                                                'class'=>'form-control select required' . ($errors->has('category_id') ? ' is-invalid' : ''),
+                                                'data-msg-required' => trans('labels.This field is required'),'placeholder' => 'শ্রেণী নির্ধারণ করুন'
+                                            ])
+                                        !!}
+                                        <div class="help-block"></div>
+                                        @if ($errors->has('category_id'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('category_id') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
                                     <div class="form-group {{ $errors->has('type_id') ? ' error' : '' }}">
                                         {!! Form::label('type_id', trans('labels.type'), ['class' => 'form-label required']) !!}
                                         {!! Form::select('type_id',
@@ -306,5 +324,35 @@
     </script>
 
     <script src="{{ asset('js/jquery-reapeter.js') }}"></script>
+
+    <script>
+        jQuery(document).ready(function ()
+        {
+            jQuery('select[name="category_id"]').on('change',function(){
+                var category_id = jQuery(this).val();
+                if(category_id)
+                {
+                jQuery.ajax({
+                    url : 'get-property-types/' +category_id,
+                    type : "GET",
+                    dataType : "json",
+                    success:function(data)
+                    {
+                        jQuery('select[name="type_id"]').empty();
+                        jQuery.each(data, function(key,value){
+                            $('select[name="type_id"]').append('<option value="'+ key +'">'+ value +'</option>');
+                        });
+                        // $('select[name="type_id"]').select2('refresh');
+                    }
+
+                });
+                }
+                else
+                {
+                $('select[name="type_id"]').empty();
+                }
+            });
+        });
+    </script>
 
 @endpush

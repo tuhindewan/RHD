@@ -24,6 +24,7 @@ class CreateStatementsTable extends Migration
                     ->constrained('users')
                     ->onUpdate('cascade')
                     ->onDelete('cascade');
+            $table->integer('category_id');
             $table->timestamps();
         });
     }
