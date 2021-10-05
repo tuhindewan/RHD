@@ -168,7 +168,7 @@ class PropertyStatementController extends Controller
     }
 
 
-    public function finalSubnit($id)
+    public function finalSubmit($id)
     {
         $statement  = Statement::findOrFail($id);
         $affected = DB::table('statements')
@@ -179,5 +179,10 @@ class PropertyStatementController extends Controller
             return redirect()->route('home')
                 ->with('success', 'সম্পদ / সম্পত্তির হিসাব বিবরণ সফল ভাবে সংরক্ষণ করা হয়েছে');
         }
+    }
+
+    public function overview()
+    {
+        return view('statement.overview.index');
     }
 }

@@ -219,5 +219,6 @@ return [
     'type' => 'ধরণ',
     'save' => 'সংরক্ষণ করুন',
     'property_statement' => 'সম্পদ / সম্পত্তির হিসাব বিবরণী',
-    'category' => 'শ্রেণী'
+    'category' => 'শ্রেণী',
+    'statement' => 'হিসাব বিবরণী'
 ];

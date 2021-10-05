@@ -38,6 +38,9 @@
                             <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
                             <li><a data-action="close"><i class="ft-x"></i></a></li>
                         </ul> --}}
+                        <a href="{{ route('statement.overview') }}" class="btn btn-primary btn-lg">
+                            <i class="fa fa-file-pdf white"></i> পূর্ণাঙ্গ @lang('labels.statement')
+                        </a>
                     </div>
                 </div>
 

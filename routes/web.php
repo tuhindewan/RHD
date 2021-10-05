@@ -40,8 +40,8 @@ Route::prefix('property')->group(function() {
     Route::get('/statement/create', [PropertyStatementController::class, 'create'])->name('statement.create');
     Route::post('/statement', [PropertyStatementController::class, 'store'])->name('statement.store');
     Route::get('/statement/{id}/preview', [PropertyStatementController::class, 'show'])->name('statement.show');
-    Route::get('/statement/details', [PropertyStatementController::class, 'beforeFinalSubmit'])->name('statement.details');
-    Route::get('/statement/{id}/final-submit', [PropertyStatementController::class, 'finalSubnit'])->name('statement.submit');
+    Route::get('/statement/{id}/final-submit', [PropertyStatementController::class, 'finalSubmit'])->name('statement.submit');
     Route::get('/statement/{id}/edit', [PropertyStatementController::class, 'edit'])->name('statement.edit');
     Route::put('/statement/{id}', [PropertyStatementController::class, 'update'])->name('statement.update');
+    Route::get('/statement/overview', [PropertyStatementController::class, 'overview'])->name('statement.overview');
 });
