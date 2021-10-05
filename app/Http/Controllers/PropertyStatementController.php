@@ -188,10 +188,13 @@ class PropertyStatementController extends Controller
 
     public function overview()
     {
-        $statements = Statement::all()->where('final_submition', '==', 1)
+        $movables = Statement::all()->where('final_submition', '==', 1)
+                                      ->where('category_id', '==', 1)
                                       ->where('user_id', '==', Auth::user()->id);
-        dd($statements);
-        return view('statement.overview.index');
+        $immovables = Statement::all()->where('final_submition', '==', 1)
+                                      ->where('category_id', '==', 2)
+                                      ->where('user_id', '==', Auth::user()->id);
+        return view('statement.overview.index',compact('immovables', 'movables'));
     }
 
     public function getPropertyTypes($id)
