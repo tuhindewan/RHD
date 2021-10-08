@@ -292,13 +292,13 @@
             <div class="card text-center">
                 <h2>সম্পদের হিসাব বিবরণী <br> সরকারি কর্মচারী আচরণ বিবিধিমালা, ১৯৭৯ এর ১৩ (১) বিধি</h2>
                 @include('layouts.partials.alert_message')
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('admin.login') }}">
                     @csrf
                     <div class="form-group">
-                        <input id="mobile" name="mobile" type="text"
-                               class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}"
-                               aria-describedby="mobileHelp" placeholder="Enter mobile"
-                               value="{{ old('mobile') }}" required autofocus>
+                        <input id="email" name="email" type="text"
+                               class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                               aria-describedby="emailHelp" placeholder="Enter email"
+                               value="{{ old('email') }}" required autofocus>
                         <span class="addon">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
@@ -307,14 +307,14 @@
                                     fill="black"/>
                             </svg>
                         </span>
-                        @if ($errors->has('mobile'))
+                        @if ($errors->has('email'))
                             <span class="invalid-feedback" role="alert">
-                                 <strong>{{ $errors->first('mobile') }}</strong>
+                                 <strong>{{ $errors->first('email') }}</strong>
                             </span>
                         @endif
 
                     </div>
-                    {{-- <div class="form-group">
+                    <div class="form-group">
                         <input id="password" type="password"
                                class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
                                placeholder="Enter password" required>
@@ -331,7 +331,7 @@
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                         @endif
-                    </div> --}}
+                    </div>
                     <div class="form-group mt-4">
                         <button type="submit" class="btn btn-primary">লগইন</button>
                     </div>

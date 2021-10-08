@@ -31,6 +31,19 @@
                         </li>
                     @else
                         {{-- @include('layouts.partials.notification') --}}
+                        @if (Auth::user()->type == 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.logout') }}"
+                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                @lang('labels.logout')
+                            </a>
+
+                            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST"
+                                  style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                        @else
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}"
                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -42,6 +55,7 @@
                                 @csrf
                             </form>
                         </li>
+                        @endif
                         <li class="nav-item">
                             <a class="nav-link" href="javascript:;">{{ Auth::user()->name }}</a>
                         </li>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminLoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\PropertyStatementController;
@@ -20,6 +21,10 @@ use App\Models\PropertyCategory;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'landing']);
 
 Auth::routes();
+
+Route::get('/admin/login', [AdminLoginController::class, 'show'])->name('admin.show.login');
+Route::post('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login');
+Route::post('/admin/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/asset-statement', [PropertyController::class, 'index'])->name('statement');
