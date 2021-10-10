@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PropertyCategory;
+use App\Models\User;
+use App\Models\Provider;
 use App\Models\Statement;
 use App\Models\PropertyType;
-use App\Models\StatementDetail;
 use Illuminate\Http\Request;
+use App\Models\StatementDetail;
+use App\Models\PropertyCategory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 
 class PropertyStatementController extends Controller
 {
@@ -176,6 +179,15 @@ class PropertyStatementController extends Controller
     public function finalSubmit($id)
     {
         $statement  = Statement::findOrFail($id);
+        $userID = Auth::user()->id;
+
+        if(!Provider::where('user_id', '=', $userID)->exists()){
+            DB::table('providers')->insert([
+                [
+                    'user_id' => $userID
+                ]
+            ]);
+        }
         $affected = DB::table('statements')
               ->where('id', $statement->id)
               ->update(['final_submition' => 1]);
@@ -212,5 +224,27 @@ class PropertyStatementController extends Controller
                 ->where('category_id', '==', 2)
                 ->where('user_id', '==', Auth::user()->id);
         return view('statement.overview.print',compact('immovables', 'movables'));
+    }
+
+    public function statementListofIndividualUser($userID)
+    {
+        $id = Crypt::decrypt($userID);
+        $statements = Statement::all()->where('final_submition', '==', 1)
+                ->where('user_id', '==', $id);
+        $user = User::findOrfail($id);
+        return view('statement.provider.list', compact('statements', 'user'));
+    }
+
+    public function statementOverviewofIndividualUser($userID)
+    {
+        $user = Crypt::decrypt($userID);
+        $movables = Statement::all()->where('final_submition', '==', 1)
+                                      ->where('category_id', '==', 1)
+                                      ->where('user_id', '==', $user);
+        $immovables = Statement::all()->where('final_submition', '==', 1)
+                                      ->where('category_id', '==', 2)
+                                      ->where('user_id', '==', $user);
+        return view('statement.provider.overview',compact('immovables', 'movables'));
+        dd($user);
     }
 }

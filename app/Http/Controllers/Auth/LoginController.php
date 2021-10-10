@@ -47,7 +47,7 @@ class LoginController extends Controller
 
         if(json_decode($response)->ResultState == true){
             $userData = json_decode($response)->Data->User[0];
-
+            // dd($userData);
             if (!User::where('mobile', '=', $request->input('mobile'))->exists()) {
                 $user = User::create([
                     'name' => $userData->Name,

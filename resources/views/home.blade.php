@@ -106,7 +106,7 @@
             <div class="card">
 
                 <div class="card-header">
-                    <h4 class="card-title">@lang('labels.property_statement') @lang('labels.list')</h4>
+                    <h4 class="card-title">@lang('labels.property_statement') @lang('labels.provider') @lang('labels.list')</h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                     <div class="heading-elements">
                         {{-- <ul class="list-inline mb-0">
@@ -126,20 +126,28 @@
                             <thead>
                             <tr>
                                 <th>@lang('labels.serial')</th>
-                                <th>@lang('labels.category')</th>
-                                <th>@lang('labels.type')</th>
+                                <th>@lang('labels.name')</th>
+                                <th>@lang('labels.designation')</th>
+                                <th>@lang('labels.officeName')</th>
                                 <th>@lang('labels.action')</th>
                             </tr>
                             </thead>
+
                             <tbody>
-                            @foreach($allStatements as $statement)
+                            @foreach($providers as $provider)
                                 <tr>
                                     <th scope="row">{{ $loop->iteration }}</th>
+                                    @php
+                                        $userID = Crypt::encrypt($provider->user_id);
+                                    @endphp
                                     <td>
-                                        {{ $statement->type->category->name }}
+                                        <a href="{{ route('user.statement.list', $userID) }}">{{ $provider->user->employee->displayName }}</a>
                                     </td>
                                     <td>
-                                        {{ $statement->type->name }}
+                                        {{ $provider->user->employee->designation }}
+                                    </td>
+                                    <td>
+                                        {{ $provider->user->employee->officeName }}
                                     </td>
                                     <td>
                                         <button id="btnAction" type="button" data-toggle="dropdown"
@@ -149,7 +157,7 @@
                                         </button>
                                         <span aria-labelledby="btnAction"
                                             class="dropdown-menu mt-1 dropdown-menu-right">
-                                            <a class="dropdown-item" href="{{ route('statement.show', $statement->id) }}">
+                                            <a class="dropdown-item" href="{{ route('user.statement.list', $userID) }}">
                                                 <i class="ft-eye"></i> @lang('labels.details')
                                             </a>
                                             {{-- <div class="dropdown-divider"></div>

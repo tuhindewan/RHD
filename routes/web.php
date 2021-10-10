@@ -58,4 +58,6 @@ Route::prefix('property')->group(function() {
     Route::get('/statement/overview', [PropertyStatementController::class, 'overview'])->name('statement.overview');
     Route::get('/statement/get-property-types/{id}', [PropertyStatementController::class, 'getPropertyTypes'])->name('satement.getType');
     Route::get('/statement/overview/print', [PropertyStatementController::class, 'statementOverviewPrint'])->name('statement.overview.print');
+    Route::get('/statement/list/{userID}', [PropertyStatementController::class, 'statementListofIndividualUser'])->name('user.statement.list');
+    Route::get('/statement/overview/{userID}', [PropertyStatementController::class, 'statementOverviewofIndividualUser'])->name('user.statement.overview');
 });

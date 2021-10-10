@@ -220,5 +220,8 @@ return [
     'save' => 'সংরক্ষণ করুন',
     'property_statement' => 'সম্পদ / সম্পত্তির হিসাব বিবরণী',
     'category' => 'শ্রেণী',
-    'statement' => 'হিসাব বিবরণী'
+    'statement' => 'হিসাব বিবরণী',
+    'provider' => 'জমাদানকারী',
+    'officeName' => 'কর্মস্থল',
+    'submitted_at' => 'জমা দেওয়া হয়েছে',
 ];

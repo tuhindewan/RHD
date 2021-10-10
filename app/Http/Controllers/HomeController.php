@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Provider;
 use App\Models\Statement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -28,9 +30,8 @@ class HomeController extends Controller
         $statements = Statement::all()->where('final_submition', '==', 1)
                                       ->where('user_id', '==', Auth::user()->id);
 
-        $allStatements = Statement::all()->where('final_submition', '==', 1);
-
-        return view('home', compact('statements', 'allStatements'));
+        $providers = Provider::all();
+        return view('home', compact('statements', 'providers'));
     }
 
     public function landing()

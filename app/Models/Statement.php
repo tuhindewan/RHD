@@ -26,4 +26,9 @@ class Statement extends Model
     {
         return $this->belongsTo(PropertyType::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

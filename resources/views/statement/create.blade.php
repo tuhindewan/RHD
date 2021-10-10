@@ -221,7 +221,7 @@
 
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="required">মন্তব্য</label>
+                                                                <label>মন্তব্য</label>
                                                                 <input type="text" class="form-control" name="comments" id="url" placeholder="মন্তব্য">
                                                             </div>
                                                         </div>
