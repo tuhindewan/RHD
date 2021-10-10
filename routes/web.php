@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\PropertyStatementController;
@@ -22,6 +23,11 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'landing']);
 
 Auth::routes();
 
+//OTP verification
+Route::get('/otp/verification/{mn}', [LoginController::class, 'getOTPForm'])->name('get.otp.form');
+Route::post('/otp/verification', [LoginController::class, 'postOTPForm'])->name('post.otp.form');
+
+//Admin authenctication
 Route::get('/admin/login', [AdminLoginController::class, 'show'])->name('admin.show.login');
 Route::post('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login');
 Route::post('/admin/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');

@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Crypt;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -41,22 +42,36 @@ class LoginController extends Controller
         if(json_decode($response)->ResultState == false){
             // dd(json_decode($response)->Message);
             $message = json_decode($response)->Message;
-            return view('auth.login')->with('error', $message);
+            return view('auth.login')->with('error', __('auth.not_registered'));
         }
 
         if(json_decode($response)->ResultState == true){
             $userData = json_decode($response)->Data->User[0];
 
             if (!User::where('mobile', '=', $request->input('mobile'))->exists()) {
-                $user = DB::table('users')->insert([
-                    [
-                        'name' => $userData->Name,
-                        'password' => Hash::make('123123'),
-                        'email' => null,
-                        'type' => 'user',
-                        'mobile' => $userData->OfficialMobileNo,
-                    ]
+                $user = User::create([
+                    'name' => $userData->Name,
+                    'password' => Hash::make('123123'),
+                    'email' => $userData->OfficialEMailID,
+                    'type' => 'user',
+                    'mobile' => $userData->OfficialMobileNo,
                 ]);
+                if($user){
+                    DB::table('employees')->insert([
+                        [
+                            'displayName' => $userData->DisplayName,
+                            'officeName' => $userData->OfficeName,
+                            'personalID' => $userData->PersonalID,
+                            'officeID' => $userData->OFficeID,
+                            'designation' => $userData->Designation,
+                            'firstNameBN' => $userData->FirstName_Bangla,
+                            'lastNameBn' => $userData->LastName_Bangla,
+                            'empID' => $userData->EmpID,
+                            'user_id' => $user->id
+                        ]
+                    ]);
+                }
+
 
                 if($user) {
                     $code = SendCode::sendCode($userData->OfficialMobileNo, $userData->Name);
@@ -66,6 +81,9 @@ class LoginController extends Controller
                             'code' => $code
                         ]);
                 }
+
+                $parameter= Crypt::encrypt($userData->OfficialMobileNo);
+                return redirect('/otp/verification/'.$parameter)->with('success', __('auth.otp_send'));
              }else{
                 $code = SendCode::sendCode($userData->OfficialMobileNo, $userData->Name);
                 DB::table('users')
@@ -73,18 +91,32 @@ class LoginController extends Controller
                     ->update([
                         'code' => $code
                     ]);
-                return($userData);
+                $parameter= Crypt::encrypt($userData->OfficialMobileNo);
+                return redirect('/otp/verification/'.$parameter)->with('success', __('auth.otp_send'));
              }
-
-
-            if (Auth::attempt(array('mobile' => $userData->OfficialMobileNo, 'password' => '123123'))) {
-                return redirect()->intended('home');
-            }
-
 
         }
     }
 
+    public function getOTPForm($mn)
+    {
+        $number = Crypt::decrypt($mn);
+        return view('otp.form', compact('number'));
+    }
+
+    public function postOTPForm(Request $request)
+    {
+        if($user=User::where('code',$request->code)->where('mobile', $request->mobile)->first()){
+            $user->code=null;
+            $user->save();
+            if (Auth::attempt(array('mobile' => $request->mobile, 'password' => '123123'))) {
+                return redirect()->intended('home');
+            }
+        }
+        else{
+            return back()->with('error', __('auth.not_correct_code'));
+        }
+    }
     /**
      * Where to redirect users after login.
      *

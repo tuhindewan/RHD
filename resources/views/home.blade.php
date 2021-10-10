@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    @if (Auth::user()->type == 'admin')
+    @if (Auth::user()->type == 'user')
     <div class="row">
         <div class="col-xl-3 col-lg-6 col-12">
             <a href="{{ route('statement.create') }}" class="eti-link">
@@ -27,6 +27,7 @@
     </div>
     @endif
 
+    @if (Auth::user()->type == 'user')
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -97,6 +98,7 @@
             </div>
         </div>
     </div>
+    @endif
 
     @if (Auth::user()->type == 'admin')
     <div class="row">
