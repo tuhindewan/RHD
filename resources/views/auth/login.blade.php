@@ -333,7 +333,7 @@
                         @endif
                     </div> --}}
                     <div class="form-group mt-4">
-                        <button type="submit" class="btn btn-primary">লগইন</button>
+                        <button type="submit" class="btn btn-primary">পরবর্তী</button>
                     </div>
                 </form>
 

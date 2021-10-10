@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Classes\SendCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -47,7 +48,7 @@ class LoginController extends Controller
             $userData = json_decode($response)->Data->User[0];
 
             if (!User::where('mobile', '=', $request->input('mobile'))->exists()) {
-                DB::table('users')->insert([
+                $user = DB::table('users')->insert([
                     [
                         'name' => $userData->Name,
                         'password' => Hash::make('123123'),
@@ -56,7 +57,25 @@ class LoginController extends Controller
                         'mobile' => $userData->OfficialMobileNo,
                     ]
                 ]);
+
+                if($user) {
+                    $code = SendCode::sendCode($userData->OfficialMobileNo, $userData->Name);
+                    DB::table('users')
+                        ->where('mobile', $userData->OfficialMobileNo)
+                        ->update([
+                            'code' => $code
+                        ]);
+                }
+             }else{
+                $code = SendCode::sendCode($userData->OfficialMobileNo, $userData->Name);
+                DB::table('users')
+                    ->where('mobile', $userData->OfficialMobileNo)
+                    ->update([
+                        'code' => $code
+                    ]);
+                return($userData);
              }
+
 
             if (Auth::attempt(array('mobile' => $userData->OfficialMobileNo, 'password' => '123123'))) {
                 return redirect()->intended('home');
