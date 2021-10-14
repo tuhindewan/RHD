@@ -290,7 +290,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center min-vh-100 ">
             <div class="card text-center">
-                <h2>সম্পদের হিসাব বিবরণী <br> সরকারি কর্মচারী আচরণ বিবিধিমালা, ১৯৭৯ এর ১৩ (১) বিধি</h2>
+                <h2>সম্পদের হিসাব বিবরণী <br> সরকারি কর্মচারী আচরণ বিধিমালা, ১৯৭৯ এর ১৩ (১) বিধি</h2>
                 @include('layouts.partials.alert_message')
                 <form method="POST" action="{{ route('login') }}">
                     @csrf

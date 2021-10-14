@@ -206,7 +206,10 @@ class PropertyStatementController extends Controller
         $immovables = Statement::all()->where('final_submition', '==', 1)
                                       ->where('category_id', '==', 2)
                                       ->where('user_id', '==', Auth::user()->id);
-        return view('statement.overview.index',compact('immovables', 'movables'));
+        // dd(count($immovables));
+        $user = Auth::user();
+        // dd($user->employee);
+        return view('statement.overview.index',compact('immovables', 'movables', 'user'));
     }
 
     public function getPropertyTypes($id)
@@ -223,7 +226,8 @@ class PropertyStatementController extends Controller
         $immovables = Statement::all()->where('final_submition', '==', 1)
                 ->where('category_id', '==', 2)
                 ->where('user_id', '==', Auth::user()->id);
-        return view('statement.overview.print',compact('immovables', 'movables'));
+        $user = Auth::user();
+        return view('statement.overview.print',compact('immovables', 'movables', 'user'));
     }
 
     public function statementListofIndividualUser($userID)

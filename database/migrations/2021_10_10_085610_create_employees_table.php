@@ -23,6 +23,9 @@ class CreateEmployeesTable extends Migration
             $table->string('firstNameBN');
             $table->string('lastNameBn');
             $table->string('empID');
+            $table->string('joining_date')->nullable();
+            $table->string('current_workplace')->nullable();
+            $table->string('signature')->nullable();
             $table->foreignId('user_id')->constrained()
                     ->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

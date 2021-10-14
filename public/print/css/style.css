@@ -1,22 +1,22 @@
 /***** Google fonts *****/
 @font-face {
-    font-family: 'vrinda';
+    font-family: 'Ruposh_Bangla';
     font-weight: 400;
-    src: url('../fonts/vrinda/vrinda.ttf') format('truetype');
+    src: url('../fonts/ruposh_bangla/ruposh_bangla.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'vrinda';
+    font-family: 'Ruposh_Bangla';
     font-weight: 600;
     font-style: italic;
-    src: url('../fonts/vrinda/vrindab.ttf') format('truetype');
+    src: url('../fonts/ruposh_bangla/ruposh_bangla.ttf') format('truetype');
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-size: 29px;
-    font-family: 'vrinda', sans-serif;
+    font-size: 13px;
+    font-family: 'Ruposh_Bangla', sans-serif;
     background-color: #ffffff !important;
 }
 
@@ -382,3 +382,4 @@ p.p-lineheight {
     max-width: 100%;
     max-height: 100%;
 }
+

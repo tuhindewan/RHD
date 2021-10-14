@@ -224,4 +224,10 @@ return [
     'provider' => 'জমাদানকারী',
     'officeName' => 'কর্মস্থল',
     'submitted_at' => 'জমা দেওয়া হয়েছে',
+    'user_information_form' => 'ব্যবহারকারীর তথ্য পূরণ',
+    'personal_info' => 'ব্যক্তিগত তথ্য',
+    'joining_date' => 'চাকরিতে যোগদানের তারিখ',
+    'current_workplace' => 'বর্তমান কর্মস্থল',
+    'signature' => 'স্বাক্ষর',
+    'store_info' => 'আপনার ব্যক্তিগত তথ্য সফল ভাবে সংরক্ষণ করা হয়েছে'
 ];

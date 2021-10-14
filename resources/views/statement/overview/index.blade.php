@@ -21,9 +21,12 @@
                             <hr style="border-top: 1px solid #eee">
                         </div>
                         <div class="col-md-12" style="text-align: center">
-                            <p>আমি: সাইদুজ্জামান তুহিন পরিচিতি নম্বর (যদি থাকে): ১২৩৪৫৬৭৮৯ পদবী: সহকারী কর্নকর্তা চাকরিতে যোগদানের তারিখ: ২৬/১২/ট২১ বর্তমান কর্মস্থল: ঢাকা এ মর্মে ঘোষণা করছি যে, আমার/আমার পরিবারের সদস্যগণের নামে চাকরিতে প্রথম যোগদানের তারিখ পর্যন্ত নিন্মে বর্ণিত সম্পদ/ সম্পত্তি বিদ্যমান আছে:</p>
+                            <p>আমি: {{ $user->employee->firstNameBN }} {{ $user->employee->lastNameBN }} পরিচিতি নম্বর (যদি থাকে): {{ $user->employee->empID }} পদবী: {{ $user->employee->designation }} চাকরিতে যোগদানের তারিখ: {{ $user->employee->joining_date }} বর্তমান কর্মস্থল: {{ $user->employee->current_workplace }} এ মর্মে ঘোষণা করছি যে, আমার/আমার পরিবারের সদস্যগণের নামে চাকরিতে প্রথম যোগদানের তারিখ পর্যন্ত নিন্মে বর্ণিত সম্পদ/ সম্পত্তি বিদ্যমান আছে:</p>
                             <hr style="border-top: 1px solid #eee">
                         </div>
+                    </div>
+
+                    <div class="row">
                         <div class="col-md-12">
                             <h3 style="text-align: center">(স্থাবর)</h3>
                             <table class="table table-bordered table-responsive table-hover">
@@ -50,31 +53,42 @@
                                       <th scope="row">৭</th>
                                       <th scope="row">৮</th>
                                     </tr>
+                                    @if (count($movables) != 0)
                                     @foreach ($movables as $movable)
-
+                                        <tr>
+                                            <th scope="row" rowspan="{{ $movable->details->count() }}">{{ $movable->type->name }}</th>
+                                            <td>{{ $movable->details[0]->acquisition_date }}</td>
+                                            <td>{{ $movable->details[0]->acquisition_name }}</td>
+                                            <td>{{ $movable->details[0]->acquisition_address }}</td>
+                                            <td>{{ $movable->details[0]->property_amount }}</td>
+                                            <td>{{ $movable->details[0]->reason_price }}</td>
+                                            <td>{{ $movable->details[0]->source_money }}</td>
+                                            <td>{{ $movable->details[0]->comments }}</td>
+                                        </tr>
+                                        @for($i=1;$i<$movable->details->count();$i++)
+                                        <tr>
+                                            <td>{{ $movable->details[$i]->acquisition_date }}</td>
+                                            <td>{{ $movable->details[$i]->acquisition_name }}</td>
+                                            <td>{{ $movable->details[$i]->acquisition_address }}</td>
+                                            <td>{{ $movable->details[$i]->property_amount }}</td>
+                                            <td>{{ $movable->details[$i]->reason_price }}</td>
+                                            <td>{{ $movable->details[$i]->source_money }}</td>
+                                            <td>{{ $movable->details[$i]->comments }}</td>
+                                        </tr>
+                                        @endfor
+                                    @endforeach
+                                    @else
                                     <tr>
-                                      <th scope="row" rowspan="{{ $movable->details->count() }}">{{ $movable->type->name }}</th>
-                                      <td>{{ $movable->details[0]->acquisition_date }}</td>
-                                      <td>{{ $movable->details[0]->acquisition_name }}</td>
-                                      <td>{{ $movable->details[0]->acquisition_address }}</td>
-                                      <td>{{ $movable->details[0]->property_amount }}</td>
-                                      <td>{{ $movable->details[0]->reason_price }}</td>
-                                      <td>{{ $movable->details[0]->source_money }}</td>
-                                      <td>{{ $movable->details[0]->comments }}</td>
-
+                                        <th scope="row" rowspan="">প্রযোজ্য নয়</th>
+                                        <td>প্রযোজ্য নয়</td>
+                                        <td>প্রযোজ্য নয়</td>
+                                        <td>প্রযোজ্য নয়</td>
+                                        <td>প্রযোজ্য নয়</td>
+                                        <td>প্রযোজ্য নয়</td>
+                                        <td>প্রযোজ্য নয়</td>
+                                        <td>প্রযোজ্য নয়</td>
                                     </tr>
-                                    @for($i=1;$i<$movable->details->count();$i++)
-                                    <tr>
-                                      <td>{{ $movable->details[$i]->acquisition_date }}</td>
-                                      <td>{{ $movable->details[$i]->acquisition_name }}</td>
-                                      <td>{{ $movable->details[$i]->acquisition_address }}</td>
-                                      <td>{{ $movable->details[$i]->property_amount }}</td>
-                                      <td>{{ $movable->details[$i]->reason_price }}</td>
-                                      <td>{{ $movable->details[$i]->source_money }}</td>
-                                      <td>{{ $movable->details[$i]->comments }}</td>
-                                    </tr>
-                                    @endfor
-                                      @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                             <hr style="border-top: 1px solid #eee">
@@ -108,31 +122,43 @@
                                       <th scope="row">৭</th>
                                       <th scope="row">৮</th>
                                     </tr>
+                                    @if (count($immovables) != 0)
                                     @foreach ($immovables as $immovable)
-
+                                        <tr>
+                                            <th scope="row" rowspan="{{ $immovable->details->count() }}">{{ $immovable->type->name }}</th>
+                                            <td>{{ $immovable->details[0]->acquisition_date }}</td>
+                                            <td>{{ $immovable->details[0]->acquisition_name }}</td>
+                                            <td>{{ $immovable->details[0]->acquisition_address }}</td>
+                                            <td>{{ $immovable->details[0]->property_amount }}</td>
+                                            <td>{{ $immovable->details[0]->reason_price }}</td>
+                                            <td>{{ $immovable->details[0]->source_money }}</td>
+                                            <td>{{ $immovable->details[0]->comments }}</td>
+                                        </tr>
+                                        @for($i=1;$i<$immovable->details->count();$i++)
+                                        <tr>
+                                            <td>{{ $immovable->details[$i]->acquisition_date }}</td>
+                                            <td>{{ $immovable->details[$i]->acquisition_name }}</td>
+                                            <td>{{ $immovable->details[$i]->acquisition_address }}</td>
+                                            <td>{{ $immovable->details[$i]->property_amount }}</td>
+                                            <td>{{ $immovable->details[$i]->reason_price }}</td>
+                                            <td>{{ $immovable->details[$i]->source_money }}</td>
+                                            <td>{{ $immovable->details[$i]->comments }}</td>
+                                        </tr>
+                                        @endfor
+                                    @endforeach
+                                    @else
                                     <tr>
-                                      <th scope="row" rowspan="{{ $immovable->details->count() }}">{{ $immovable->type->name }}</th>
-                                      <td>{{ $immovable->details[0]->acquisition_date }}</td>
-                                      <td>{{ $immovable->details[0]->acquisition_name }}</td>
-                                      <td>{{ $immovable->details[0]->acquisition_address }}</td>
-                                      <td>{{ $immovable->details[0]->property_amount }}</td>
-                                      <td>{{ $immovable->details[0]->reason_price }}</td>
-                                      <td>{{ $immovable->details[0]->source_money }}</td>
-                                      <td>{{ $immovable->details[0]->comments }}</td>
+                                        <th scope="row" rowspan="">প্রযোজ্য নয়</th>
+                                        <td>প্রযোজ্য নয়</td>
+                                        <td>প্রযোজ্য নয়</td>
+                                        <td>প্রযোজ্য নয়</td>
+                                        <td>প্রযোজ্য নয়</td>
+                                        <td>প্রযোজ্য নয়</td>
+                                        <td>প্রযোজ্য নয়</td>
+                                        <td>প্রযোজ্য নয়</td>
+                                    </tr>
+                                    @endif
 
-                                    </tr>
-                                    @for($i=1;$i<$immovable->details->count();$i++)
-                                    <tr>
-                                      <td>{{ $immovable->details[$i]->acquisition_date }}</td>
-                                      <td>{{ $immovable->details[$i]->acquisition_name }}</td>
-                                      <td>{{ $immovable->details[$i]->acquisition_address }}</td>
-                                      <td>{{ $immovable->details[$i]->property_amount }}</td>
-                                      <td>{{ $immovable->details[$i]->reason_price }}</td>
-                                      <td>{{ $immovable->details[$i]->source_money }}</td>
-                                      <td>{{ $immovable->details[$i]->comments }}</td>
-                                    </tr>
-                                    @endfor
-                                      @endforeach
                                 </tbody>
                             </table>
                             <hr style="border-top: 1px solid #eee">
@@ -146,9 +172,11 @@
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4">
-                                    <p>স্বাক্ষর:</p><br>
-                                    <p>নাম:</p><br>
-                                    <p>পদবি:</p><br>
+                                    <p>স্বাক্ষর: <img class="img-fluid"
+                                        src="{{ asset('img/employees/signatures/'.$user->employee->signature) }}"
+                                        alt="Photo" width="200px" height="200px"></p><br>
+                                    <p>নাম: {{ $user->employee->firstNameBN }} {{ $user->employee->lastNameBN }}</p><br>
+                                    <p>পদবি: {{ $user->employee->designation }}</p><br>
                                 </div>
                             </div>
                             <hr style="border-top: 1px solid #eee">
